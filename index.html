@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW PIXEL - البوابة الرسمية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        * { font-family: 'Cairo', sans-serif; margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { background: #0a0a0a; color: #e0e0e0; min-height: 100vh; }
+        
+        .bg-main {
+            background-image: url('https://cdn.discordapp.com/attachments/1539408750316617901/1541191974495854682/SunBillB10.png?ex=6a8cb260&is=6a8b60e0&hm=27ead4dbae5d839778f898b4abc7843c574b9731c89283ff3470aa7595ca5453&');
+            background-size: cover; background-position: center; background-attachment: fixed; min-height: 100vh;
+        }
+        .bg-main::before { content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 0; }
+        .content { position: relative; z-index: 1; padding-bottom: 80px; }
+        
+        .gold-text { color: #d4af37; }
+        .gold-border { border-color: #d4af37; }
+        .gold-bg { background: #d4af37; }
+        .gray-text { color: #9e9e9e; }
+        .dark-bg { background: #1a1a1a; }
+        .card-dark { background: rgba(20,20,20,0.85); backdrop-filter: blur(10px); border: 1px solid rgba(212,175,55,0.2); border-radius: 15px; padding: 20px; transition: all 0.3s; }
+        .card-dark:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(212,175,55,0.1); border-color: rgba(212,175,55,0.5); }
+        
+        .login-screen { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+        .login-screen .logo { width: 200px; height: 200px; border-radius: 50%; border: 3px solid #d4af37; box-shadow: 0 0 60px rgba(212,175,55,0.2); margin-bottom: 30px; object-fit: cover; }
+        .login-screen h1 { font-size: 3.5rem; font-weight: 900; color: #d4af37; letter-spacing: 5px; text-shadow: 0 0 30px rgba(212,175,55,0.2); }
+        .login-screen .sub-title { color: #d4af37; font-size: 1.5rem; font-weight: 700; margin: 5px 0; }
+        .login-screen .sub-title2 { color: #9e9e9e; font-size: 1.1rem; margin-bottom: 20px; }
+        .login-screen .tag { color: #555; font-size: 0.8rem; margin-top: 20px; }
+        
+        .login-input {
+            background: rgba(255,255,255,0.03);
+            border: 2px solid rgba(212,175,55,0.3);
+            border-radius: 10px;
+            padding: 14px 20px;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .login-input:focus { border-color: #d4af37; outline: none; box-shadow: 0 0 20px rgba(212,175,55,0.1); }
+        .login-input::placeholder { color: #555; }
+        
+        .login-btn {
+            background: #d4af37;
+            color: #0a0a0a;
+            padding: 14px 50px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+        .login-btn:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(212,175,55,0.3); background: #c4a032; }
+        
+        .order-bar { background: #1a1a1a; border-bottom: 2px solid #d4af37; padding: 12px 20px; display: none; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; color: #e0e0e0; flex-wrap: wrap; gap: 10px; }
+        .order-bar.show { display: flex; }
+        .order-bar .order-number { color: #d4af37; font-weight: 700; font-size: 1.1rem; }
+        .order-bar .order-actions button { background: #d4af37; color: #0a0a0a; border: none; padding: 5px 15px; border-radius: 6px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .order-bar .order-actions button:hover { transform: scale(1.05); background: #c4a032; }
+        .order-bar .order-actions .save-btn { background: #d4af37; color: #0a0a0a; }
+        .order-bar .order-actions .save-btn:hover { background: #c4a032; }
+        
+        .bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; background: #1a1a1a; backdrop-filter: blur(15px); border-top: 1px solid rgba(212,175,55,0.2); display: flex; justify-content: space-around; align-items: center; padding: 8px 10px; z-index: 1000; }
+        .bottom-nav a { color: #666; text-decoration: none; display: flex; flex-direction: column; align-items: center; font-size: 0.7rem; transition: all 0.3s; padding: 5px 10px; border-radius: 8px; }
+        .bottom-nav a i { font-size: 1.4rem; margin-bottom: 2px; }
+        .bottom-nav a:hover { color: #e0e0e0; }
+        .bottom-nav a.active { color: #d4af37; }
+        
+        .section { padding: 20px 15px; max-width: 1200px; margin: 0 auto; }
+        .section-title { font-size: 2rem; font-weight: 900; color: #d4af37; text-align: center; margin-bottom: 20px; }
+        
+        .store-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .store-card {
+            border-radius: 15px;
+            padding: 25px 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(0,0,0,0.9);
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid rgba(212,175,55,0.2);
+            background-size: cover;
+            background-position: center;
+            background-color: transparent;
+        }
+        .store-card:hover { transform: scale(1.03); box-shadow: 0 10px 40px rgba(212,175,55,0.15); border-color: #d4af37; }
+        .store-card h2 { font-size: 2rem; font-weight: 900; margin-bottom: 5px; color: #d4af37; }
+        .store-card p { font-size: 1rem; opacity: 0.8; color: #e0e0e0; }
+        
+        .card-realestate {
+            background-image: url('https://cdn.discordapp.com/attachments/1259131362615492658/1539342171147214908/Screenshot_------_com.openai.chatgpt.png?ex=6a85f79d&is=6a84a61d&hm=45866a2a667e4755d312d6af7e032a325001c237c61fe7605c63ba35c8a442fa&');
+            background-size: cover; background-position: center;
+        }
+        .card-packages {
+            background-image: url('https://cdn.discordapp.com/attachments/1259131362615492658/1539361981339795497/Screenshot_------_com.openai.chatgpt-3.png?ex=6a860a10&is=6a84b890&hm=ea677e4af8b5a44e9a13351e5dea75848c959e810fc5c3b6b10600cbf086d17e&');
+            background-size: cover; background-position: center;
+        }
+        .card-gangs {
+            background-image: url('https://cdn.discordapp.com/attachments/1259131362615492658/1539362866354856036/Screenshot_------_com.openai.chatgpt-2.png?ex=6a860ae3&is=6a84b963&hm=eb1ea33670a84812f9a4a9f8e9900a8669c1ab1a4c4d05066fb9d73958d4764f&');
+            background-size: cover; background-position: center;
+        }
+        
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .product-card {
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s;
+            cursor: pointer;
+            color: #fff;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            background-color: transparent;
+            border: 2px solid rgba(212,175,55,0.15);
+            text-shadow: 0 0 15px rgba(0,0,0,0.9);
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .product-card:hover { transform: translateY(-5px); border-color: #d4af37; box-shadow: 0 10px 30px rgba(212,175,55,0.15); }
+        .product-card .price { color: #d4af37; font-size: 1.2rem; font-weight: 700; }
+        .product-card .quantity-control { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 10px 0; }
+        .product-card .quantity-control button { background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(212,175,55,0.2); border-radius: 5px; width: 30px; height: 30px; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+        .product-card .quantity-control button:hover { background: #d4af37; color: #0a0a0a; }
+        .product-card .quantity-control span { font-size: 1.2rem; font-weight: 700; min-width: 30px; color: #e0e0e0; }
+        .product-card button.add-btn { background: #d4af37; color: #0a0a0a; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 700; cursor: pointer; transition: all 0.3s; margin-top: 5px; }
+        .product-card button.add-btn:hover { background: #c4a032; transform: scale(1.05); }
+        
+        .admin-card { background: rgba(20,20,20,0.85); backdrop-filter: blur(5px); border: 1px solid rgba(212,175,55,0.2); border-radius: 12px; padding: 20px; text-align: center; transition: all 0.3s; }
+        .admin-card .rank { color: #d4af37; font-weight: 700; font-size: 0.9rem; }
+        .admin-card .name { font-size: 1.3rem; font-weight: 700; color: #e0e0e0; }
+        
+        .law-item { 
+            border-right: 3px solid #d4af37; 
+            padding-right: 15px; 
+            margin-bottom: 12px; 
+            padding: 10px 15px;
+            background: rgba(212,175,55,0.03);
+            border-radius: 8px;
+        }
+        .law-item strong { color: #d4af37; }
+        .law-section { 
+            background: rgba(20,20,20,0.6); 
+            border: 1px solid rgba(212,175,55,0.1); 
+            border-radius: 12px; 
+            padding: 15px 20px; 
+            margin-bottom: 20px;
+        }
+        .law-section h3 { color: #d4af37; font-size: 1.3rem; margin-bottom: 10px; border-bottom: 1px solid rgba(212,175,55,0.15); padding-bottom: 8px; }
+        
+        .cart-sidebar { position: fixed; top: 0; left: -420px; width: 400px; height: 100%; background: #1a1a1a; backdrop-filter: blur(15px); border-right: 2px solid #d4af37; padding: 20px; z-index: 1000; transition: all 0.4s ease; overflow-y: auto; }
+        .cart-sidebar.open { left: 0; }
+        .cart-sidebar .cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(212,175,55,0.3); padding-bottom: 15px; margin-bottom: 15px; }
+        .cart-sidebar .cart-header h3 { color: #d4af37; font-size: 1.5rem; }
+        .cart-sidebar .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.03); }
+        .cart-sidebar .cart-item .item-info { display: flex; align-items: center; gap: 10px; }
+        .cart-sidebar .cart-item .item-info img { width: 40px; height: 40px; border-radius: 6px; object-fit: cover; }
+        .cart-sidebar .cart-item .item-info .item-name { color: #e0e0e0; }
+        .cart-sidebar .cart-item .item-info .item-qty { color: #777; font-size: 0.8rem; }
+        .cart-sidebar .cart-item .item-price { color: #d4af37; }
+        .cart-sidebar .cart-total { color: #d4af37; font-size: 1.3rem; font-weight: 700; padding: 15px 0; border-top: 2px solid rgba(212,175,55,0.3); margin-top: 15px; }
+        
+        .cart-toggle { 
+            position: fixed; 
+            bottom: 90px; 
+            right: 20px; 
+            background: #d4af37; 
+            color: #0a0a0a; 
+            border: none; 
+            border-radius: 50%; 
+            width: 55px; 
+            height: 55px; 
+            font-size: 1.5rem; 
+            cursor: pointer; 
+            box-shadow: 0 0 30px rgba(212,175,55,0.2); 
+            transition: all 0.3s; 
+            z-index: 500;
+            display: none;
+        }
+        .cart-toggle.visible { display: block; }
+        .cart-toggle:hover { transform: scale(1.1); box-shadow: 0 0 50px rgba(212,175,55,0.3); }
+        .cart-toggle .badge { position: absolute; top: -5px; right: -5px; background: #d4af37; color: #0a0a0a; border-radius: 50%; width: 22px; height: 22px; font-size: 0.7rem; font-weight: 700; display: flex; justify-content: center; align-items: center; }
+        
+        .search-bar { display: flex; gap: 10px; max-width: 500px; margin: 20px auto 10px; }
+        .search-bar input { flex: 1; background: rgba(255,255,255,0.03); border: 2px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 10px 15px; color: #e0e0e0; font-size: 1rem; }
+        .search-bar input:focus { border-color: #d4af37; outline: none; }
+        .search-bar button { background: #d4af37; color: #0a0a0a; border: none; border-radius: 10px; padding: 10px 20px; font-weight: 700; cursor: pointer; transition: all 0.3s; }
+        .search-bar button:hover { background: #c4a032; }
+        
+        .subcategory-tabs { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+        .subcategory-tabs button { background: rgba(255,255,255,0.03); color: #9e9e9e; border: 2px solid rgba(212,175,55,0.1); border-radius: 20px; padding: 6px 16px; cursor: pointer; transition: all 0.3s; }
+        .subcategory-tabs button:hover { border-color: #d4af37; color: #e0e0e0; }
+        .subcategory-tabs button.active { background: #d4af37; color: #0a0a0a; border-color: #d4af37; }
+        
+        .product-detail-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 2000; display: none; justify-content: center; align-items: center; padding: 20px; }
+        .product-detail-modal.show { display: flex; }
+        .product-detail-modal .modal-content { background: #1a1a1a; border: 2px solid rgba(212,175,55,0.3); border-radius: 20px; padding: 30px; max-width: 600px; width: 100%; max-height: 90vh; overflow-y: auto; }
+        .product-detail-modal .modal-content .close-btn { float: left; background: none; border: none; color: #e0e0e0; font-size: 1.5rem; cursor: pointer; }
+        .product-detail-modal .modal-content .detail-price { color: #d4af37; font-size: 1.5rem; font-weight: 700; }
+        .product-detail-modal .modal-content .detail-desc { color: #9e9e9e; margin: 10px 0; }
+        .product-detail-modal .modal-content img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 15px; }
+        .product-detail-modal .modal-content .quantity-control button { background: rgba(255,255,255,0.05); color: #e0e0e0; border: 1px solid rgba(212,175,55,0.2); border-radius: 5px; width: 30px; height: 30px; font-size: 1rem; cursor: pointer; transition: all 0.3s; }
+        .product-detail-modal .modal-content .quantity-control button:hover { background: #d4af37; color: #0a0a0a; }
+        .product-detail-modal .modal-content .quantity-control span { color: #e0e0e0; }
+        
+        .stats-section { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 15px; }
+        .stat-card { background: rgba(20,20,20,0.6); border: 1px solid rgba(212,175,55,0.1); border-radius: 12px; padding: 15px; text-align: center; }
+        .stat-card .stat-number { font-size: 2rem; font-weight: 900; color: #d4af37; }
+        .stat-card .stat-label { color: #9e9e9e; font-size: 0.9rem; }
+        
+        .ministry-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px; }
+        .ministry-card { 
+            background: rgba(20,20,20,0.8); 
+            backdrop-filter: blur(5px); 
+            border: 2px solid rgba(212,175,55,0.15); 
+            border-radius: 12px; 
+            padding: 15px; 
+            text-align: center; 
+            transition: all 0.3s; 
+            min-height: 220px; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            overflow: hidden;
+        }
+        .ministry-card:hover { transform: scale(1.03); border-color: #d4af37; box-shadow: 0 0 30px rgba(212,175,55,0.1); }
+        .ministry-card img { width: 100%; max-height: 120px; object-fit: contain; border-radius: 8px; margin-bottom: 10px; background: rgba(0,0,0,0.3); padding: 5px; }
+        .ministry-card h3 { color: #d4af37; font-size: 1.2rem; margin: 5px 0; }
+        .ministry-card .closed { color: #ff4444; font-weight: 700; margin-top: 5px; font-size: 0.9rem; }
+        .ministry-card .desc { color: #9e9e9e; font-size: 0.8rem; }
+        
+        .hidden { display: none; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateX(-50%) translateY(30px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+        @keyframes fadeOutDown { from { opacity: 1; transform: translateX(-50%) translateY(0); } to { opacity: 0; transform: translateX(-50%) translateY(30px); } }
+        
+        @media (max-width: 768px) {
+            .login-screen h1 { font-size: 2.5rem; }
+            .section-title { font-size: 1.8rem; }
+            .cart-sidebar { width: 100%; left: -100%; }
+            .bottom-nav a { font-size: 0.6rem; }
+            .bottom-nav a i { font-size: 1.2rem; }
+            .order-bar { flex-direction: column; text-align: center; }
+            .stats-section { grid-template-columns: repeat(2, 1fr); }
+            .ministry-card img { max-height: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== شاشة الدخول ===== -->
+<div id="loginScreen" class="login-screen bg-main">
+    <div class="content text-center">
+        <img class="logo" src="https://cdn.discordapp.com/attachments/1259131362615492658/1536081187112616086/file_0000000075ec81f4a2f598e0a37d13f8.png?ex=6a7a1a96&is=6a78c916&hm=d5e9dba92e8f19f99c21d3f807a1acb9149689193411752f0dec9ed14585738c&" alt="NEW PIXEL">
+        <h1>NEW PIXEL</h1>
+        <p class="sub-title">#NEWPIXEL</p>
+        <p class="sub-title2">لست الوحيدين لإنتاج فصل</p>
+        <p style="color:#9e9e9e;font-size:1rem;margin-bottom:20px;">We are not the only ones but we are the best</p>
+        <input type="text" id="usernameInput" class="login-input" placeholder="أدخل اسمك..." value="">
+        <button class="login-btn" onclick="loginWithUsername()">دخول 🎉</button>
+        <p class="tag">NEW PIXEL</p>
+    </div>
+</div>
+
+<!-- ===== الموقع الرئيسي ===== -->
+<div id="mainSite" style="display:none;" class="bg-main">
+    <div class="content">
+        <div id="orderBar" class="order-bar">
+            <span class="order-number" id="orderNumberDisplay">📋 رقم الطلب: <span id="orderNumberText">0</span></span>
+            <div class="order-actions">
+                <button class="save-btn" onclick="saveOrderNumber()">💾 حفظ</button>
+                <button onclick="removeOrderNumber()">🗑️ إزالة</button>
+            </div>
+        </div>
+        <div id="pageContent"></div>
+        <nav class="bottom-nav" id="bottomNav">
+            <a href="#" class="active" data-page="home"><i class="fas fa-home"></i><span>الرئيسية</span></a>
+            <a href="#" data-page="store"><i class="fas fa-store"></i><span>المتجر</span></a>
+            <a href="#" data-page="jobs"><i class="fas fa-briefcase"></i><span>الوظائف</span></a>
+            <a href="#" data-page="admin"><i class="fas fa-crown"></i><span>الإدارة</span></a>
+            <a href="#" data-page="rules"><i class="fas fa-gavel"></i><span>القوانين</span></a>
+            <a href="#" data-page="media"><i class="fas fa-photo-video"></i><span>الميديا</span></a>
+            <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt" style="color:#d4af37;"></i><span style="color:#d4af37;">خروج</span></a>
+        </nav>
+    </div>
+</div>
+
+<!-- ===== زر السلة ===== -->
+<button class="cart-toggle" id="cartToggle" onclick="toggleCart()">
+    🛒 <span class="badge" id="cartBadge">0</span>
+</button>
+
+<!-- ===== السلة الجانبية ===== -->
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>🛒 سلة المشتريات</h3>
+        <button onclick="toggleCart()" style="background:transparent;border:none;color:#e0e0e0;font-size:1.5rem;cursor:pointer;">✕</button>
+    </div>
+    <div id="cartItems"><p style="color:#666;text-align:center;padding:20px;">السلة فارغة</p></div>
+    <div class="cart-total" id="cartTotal">المجموع: 0 كريدت</div>
+    <button onclick="checkout()" style="width:100%;background:#d4af37;color:#0a0a0a;border:none;padding:12px;border-radius:10px;font-weight:700;font-size:1.1rem;cursor:pointer;margin-top:10px;">✅ إنهاء الطلب</button>
+</div>
+
+<!-- ===== نافذة تفاصيل المنتج ===== -->
+<div class="product-detail-modal" id="productDetailModal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeProductDetail()">✕</button>
+        <img id="detailImage" src="" alt="">
+        <h2 id="detailName" style="color:#e0e0e0;font-size:1.8rem;"></h2>
+        <div class="detail-price" id="detailPrice"></div>
+        <div class="detail-desc" id="detailDesc">وصف المنتج: منتج مميز وفاخر من NEW PIXEL</div>
+        <div class="quantity-control" style="display:flex;justify-content:center;align-items:center;gap:10px;margin:15px 0;">
+            <button onclick="changeDetailQty(-1)">-</button>
+            <span id="detailQty" style="font-size:1.5rem;font-weight:700;min-width:40px;text-align:center;color:#e0e0e0;">1</span>
+            <button onclick="changeDetailQty(1)">+</button>
+        </div>
+        <button onclick="addDetailToCart()" style="width:100%;background:#d4af37;color:#0a0a0a;border:none;padding:12px;border-radius:10px;font-weight:700;font-size:1.1rem;cursor:pointer;">➕ أضف للسلة</button>
+    </div>
+</div>
+
+<script>
+    // ===== المتغيرات العامة =====
+    let currentOrderNumber = '';
+    let cart = [];
+    let cartCount = 0;
+    let currentUser = '';
+    let detailQty = 1;
+    let detailProduct = null;
+    let currentSubcategory = 'all';
+    let currentCategory = 'realestate';
+    let searchQuery = '';
+
+    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1541186749248577606/RxcEO0MvgFvLqUo96UXhq0a6hZFEaRzeVTvUpg04He3YFP6aiJHBo1yFxfy4FRmAnOSZ';
+
+    function parsePrice(priceStr) {
+        if (!priceStr) return 0;
+        let num = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+        if (priceStr.includes('M')) return num * 1000000;
+        if (priceStr.includes('K')) return num * 1000;
+        return num;
+    }
+
+    function formatPrice(num) {
+        if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+        if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+        return num.toString();
+    }
+
+    const realestateImg = 'https://cdn.discordapp.com/attachments/1259131362615492658/1539342171147214908/Screenshot_------_com.openai.chatgpt.png?ex=6a85f79d&is=6a84a61d&hm=45866a2a667e4755d312d6af7e032a325001c237c61fe7605c63ba35c8a442fa&';
+    const packagesImg = 'https://cdn.discordapp.com/attachments/1259131362615492658/1539361981339795497/Screenshot_------_com.openai.chatgpt-3.png?ex=6a860a10&is=6a84b890&hm=ea677e4af8b5a44e9a13351e5dea75848c959e810fc5c3b6b10600cbf086d17e&';
+    const gangsImg = 'https://cdn.discordapp.com/attachments/1259131362615492658/1539362866354856036/Screenshot_------_com.openai.chatgpt-2.png?ex=6a860ae3&is=6a84b963&hm=eb1ea33670a84812f9a4a9f8e9900a8669c1ab1a4c4d05066fb9d73958d4764f&';
+
+    const allProducts = {
+        realestate: {
+            subcategories: ['عقارات'],
+            items: [
+                { id: 'r1', name: '🏪 محل عام', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'محل عام في موقع مميز' },
+                { id: 'r2', name: '🍽️ مطعم', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'مطعم فاخر مع تجهيزات كاملة' },
+                { id: 'r3', name: '👕 محل ملابس', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'محل ملابس في منطقة حيوية' },
+                { id: 'r4', name: '🏠 بيت صغير', price: '300K', img: realestateImg, subcategory: 'عقارات', desc: 'بيت صغير مناسب للعائلات الصغيرة' },
+                { id: 'r5', name: '🏘️ بيت متوسط', price: '500K', img: realestateImg, subcategory: 'عقارات', desc: 'بيت متوسط مع حديقة' },
+                { id: 'r6', name: '🏰 قصر', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'قصر فاخر مع جميع المرافق' }
+            ]
+        },
+        packages: {
+            subcategories: ['حزم'],
+            items: [
+                { id: 'p1', name: '🎒 حقيبة مستوى أول', price: '150K', img: packagesImg, subcategory: 'حزم', desc: 'حقيبة مستوى أول - للمبتدئين' },
+                { id: 'p2', name: '🎒 حقيبة مستوى ثاني', price: '250K', img: packagesImg, subcategory: 'حزم', desc: 'حقيبة مستوى ثاني - للمتقدمين' },
+                { id: 'p3', name: '🎒 حقيبة مستوى ثالث', price: '400K', img: packagesImg, subcategory: 'حزم', desc: 'حقيبة مستوى ثالث - للمحترفين' },
+                { id: 'p4', name: '🔫 مستوى تصنيع أسلحة 5', price: '500K', img: packagesImg, subcategory: 'حزم', desc: 'رفع مستوى تصنيع الأسلحة إلى 5' },
+                { id: 'p5', name: '👤 مستوى شخصي 5', price: '500K', img: packagesImg, subcategory: 'حزم', desc: 'رفع المستوى الشخصي إلى 5' },
+                { id: 'p6', name: '🚗 سيارة من اختيارك', price: '300K', img: packagesImg, subcategory: 'حزم', desc: 'سيارة من اختيارك مع ترخيص' },
+                { id: 'p7', name: '👑 VIP 1', price: '800K', img: packagesImg, subcategory: 'حزم', desc: 'عضوية VIP المستوى الأول' },
+                { id: 'p8', name: '👑 VIP 2', price: '1.5M', img: packagesImg, subcategory: 'حزم', desc: 'عضوية VIP المستوى الثاني' },
+                { id: 'p9', name: '👑 VIP 3', price: '2.5M', img: packagesImg, subcategory: 'حزم', desc: 'عضوية VIP المستوى الثالث' }
+            ]
+        },
+        gangs: {
+            subcategories: ['عصابات'],
+            items: [
+                { id: 'g1', name: '⚔️ فتح عصابه جديده', price: '300K', img: gangsImg, subcategory: 'عصابات', desc: 'فتح عصابة جديدة بتصريح رسمي' },
+                { id: 'g2', name: '📋 استلام عصابه جاهزه', price: '50K', img: gangsImg, subcategory: 'عصابات', desc: 'استلام عصابة جاهزة للتشغيل' },
+                { id: 'g3', name: '🏢 سياج للمقر', price: '200K', img: gangsImg, subcategory: 'عصابات', desc: 'تأمين سياج لمقر العصابة' },
+                { id: 'g4', name: '📍 تغيير مقر العصابه', price: '250K', img: gangsImg, subcategory: 'عصابات', desc: 'تغيير موقع مقر العصابة' },
+                { id: 'g5', name: '🎨 تغير اسم ولون العصابه', price: '200K', img: gangsImg, subcategory: 'عصابات', desc: 'تغيير اسم ولون العصابة' },
+                { id: 'g6', name: '📦 تعبئة متيريال', price: '100K', img: gangsImg, subcategory: 'عصابات', desc: 'تعبئة مواد ومستلزمات العصابة' },
+                { id: 'g7', name: '🚗 سيارة للعصابه', price: '50K', img: gangsImg, subcategory: 'عصابات', desc: 'سيارة خاصة للعصابة' },
+                { id: 'g8', name: '🚁 هيلي كوبتر', price: '150K', img: gangsImg, subcategory: 'عصابات', desc: 'طائرة هليكوبتر للعصابة' }
+            ]
+        }
+    };
+
+    let storeStats = { visitors: 0, sales: 0 };
+
+    const ministries = [
+        { name: 'وزارة الداخلية', img: 'https://cdn.discordapp.com/attachments/1259131362615492658/1539368753106649158/IMG__.png?ex=6a86105e&is=6a84bede&hm=51e1101421586f3eef8b5c30173a38ad0478a3cca85d8753dfd86143258e0352&', desc: 'الأمن والشرطة' },
+        { name: 'وزارة الصحة', img: 'https://cdn.discordapp.com/attachments/1259131362615492658/1539368751642976408/IMG__-3.png?ex=6a86105e&is=6a84bede&hm=c71d6a51f8b3d3947825bf6369daa68a3261ce243c6cc797b1570c0043e636ac&', desc: 'الخدمات الطبية' },
+        { name: 'وزارة الميكانيك', img: 'https://cdn.discordapp.com/attachments/1259131362615492658/1539368750770290843/IMG__-4.png?ex=6a86105e&is=6a84bede&hm=1ac8c2424759c00c9e00f9545c60af49d6eeb2049c936fb7c9f6ef07e9dc052b&', desc: 'الصيانة والمركبات' },
+        { name: 'وزارة العدل', img: 'https://cdn.discordapp.com/attachments/1259131362615492658/1539368753735663706/IMG__-1.png?ex=6a86105e&is=6a84bede&hm=9dae60a110e0a3a4345ac49d69cf282b4e68cccc02fe1ced57b2aa31bcdc9408&', desc: 'القضاء والقانون' },
+        { name: 'القوات الخاصة', img: 'https://cdn.discordapp.com/attachments/1539097816138383370/1541195287521923082/jL1i3kobci4.jpg?ex=6a8cb576&is=6a8b63f6&hm=585390a526e3d392a76c0b03d5694a6d2c45ee4cf36f6731a008dabc497e63cc&', desc: 'SPECIAL WEAPONS AND TACTICS' }
+    ];
+
+    const laws = [
+        { title: 'قوانين الحياة الحديثة — NLR', rules: ['عند موتك داخل اللعبة تبدأ حياة جديدة كلياً، ولا يحق لك تذكر أي حدث وقع قبل موتك.', 'يمنع العودة إلى نفس المكان الذي متّ فيه خلال 15 دقيقة على الأقل.', 'لا يحق لك الانتقام من الشخص الذي قتلك في نفس السيناريو.', 'إذا متّ أثناء عملية (خطف، سرقة، مطاردة) لا يحق لك العودة للمشاركة فيها مجدداً.', 'مخالفة NLR تُعدّ من المخالفات الجسيمة وتستوجب عقوبة من الإدارة.'] },
+        { title: 'بور جيمنج — PowerGaming', rules: ['يمنع إجبار اللاعبين على القيام بأفعال لا يرغبون بها دون منحهم فرصة للرد أو التصرف.', 'يمنع استخدام قدرات أو أفعال خارجة عن إطار الرول بلاي الواقعي.', 'يجب أن تكون جميع الأفعال والسيناريوهات قابلة للتصديق ضمن عالم الرول بلاي.', 'يمنع تنفيذ أفعال معقدة متعددة في آن واحد بشكل غير واقعي.', 'المخالفة المتعمدة لقواعد PowerGaming تستوجب إجراءات من الإدارة.'] },
+        { title: 'الخوف على الحياة — NVL', rules: ['يجب على كل لاعب أن يتصرف كما لو أن حياته ذات قيمة حقيقية.', 'إذا وُجّه إليك سلاح على مسافة قريبة ومن شخص متمكن، يجب الامتثال لأوامره.', 'يمنع الاستهتار بحياة شخصيتك مثل مواجهة مجموعة مسلحة بيديك فارغتين.', 'يمنع أداء أفعال انتحارية بشكل متكرر أو بدون مبرر رول بلاي واقعي.', 'مخالفة NVL تُعدّ من أخطر المخالفات وتستوجب عقوبة صارمة.'] },
+        { title: 'الميتا جيمنج — Metagaming', rules: ['يمنع استخدام أي معلومة حصلت عليها خارج اللعبة (بث، دسكورد، واتساب...) داخل اللعبة.', 'يمنع التنسيق مع لاعبين آخرين عبر قنوات خارجية أثناء السيناريو.', 'المعلومة لا تكون صالحة للاستخدام إلا إذا حصلت عليها عبر شخصيتك داخل اللعبة مباشرةً.', 'يُعدّ مشاهدة بث لاعب آخر ثم استخدام ما رآه ضده Metagaming صريح.', 'مخالفة هذا القانون تستوجب إجراءات فورية من الإدارة.'] },
+        { title: 'القتل العشوائي — RDM / VDM', rules: ['يمنع قتل أي لاعب بدون سبب رول بلاي واضح ومبرر مسبق.', 'يجب أن يسبق أي قتل تصعيد درامي كافٍ داخل اللعبة.', 'يمنع استخدام السيارة كسلاح لدهس لاعبين عشوائياً.', 'حتى في الحروب بين العصابات يجب أن يكون هناك سبب رول بلاي معلن مسبقاً.', 'مخالفة RDM أو VDM تستوجب عقوبة حسب درجة المخالفة.'] },
+        { title: 'القوانين العامة', rules: ['الاحترام المتبادل بين جميع اللاعبين داخل وخارج اللعبة إلزامي.', 'يمنع التحرش أو الإساءة اللفظية أو العنصرية بأي شكل كان.', 'يمنع استغلال الأخطاء البرمجية أو الثغرات ويجب الإبلاغ عنها.', 'الالتزام بقرارات الإدارة إلزامي ويمكن الاعتراض عبر القنوات الرسمية فقط.', 'يمنع انتحال صفة أعضاء الإدارة أو الطاقم الرسمي.', 'يُمنع نشر معلومات شخصية لأي لاعب.'] },
+        { title: 'نظام الإنذارات', rules: ['كل مخالفة قد تُفضي إلى إنذار يُسجل في ملف اللاعب.', '3 إنذارات تراكمية تستوجب إيقافاً مؤقتاً.', '5 إنذارات تراكمية قد تصل للحظر الدائم.', 'يمكن الطعن في أي إنذار خلال 48 ساعة.', 'المخالفات الخطيرة قد تؤدي إلى حظر فوري.'] },
+        { title: 'قوانين الشرطة', rules: ['يجب ارتداء الزي الرسمي الكامل أثناء الخدمة.', 'يمنع استخدام القوة المفرطة بدون مبرر رول بلاي واضح.', 'التدرج في التعامل إلزامي.', 'يمنع الإفراج عن موقوف دون تصريح مسؤول.', 'يجب توثيق جميع العمليات والاعتقالات.'] },
+        { title: 'قوانين الإسعاف', rules: ['الإسعاف جهة محايدة ويمنع الانحياز لأي طرف.', 'يجب إسعاف الجميع بغض النظر عن هويتهم.', 'يمنع حمل أسلحة هجومية أثناء الخدمة.', 'يجب ارتداء الزي الرسمي الكامل طوال فترة الخدمة.', 'سيارة الإسعاف محمية أثناء المهام.'] },
+        { title: 'قوانين العصابات', rules: ['يجب أن يكون لكل عصابة هيكل تنظيمي واضح ومعتمد من الإدارة.', 'الحروب تستلزم إعلاناً رسمياً وموافقة إدارية مسبقة.', 'يمنع استهداف المدنيين أو لاعبين خارج نطاق النزاع.', 'يمنع السطو دون الشروط المطلوبة من الإدارة.', 'أي عصابة بدون اعتماد رسمي تُعد غير شرعية.'] },
+        { title: 'قوانين العمل', rules: ['يجب على كل موظف ارتداء الزي الرسمي لوظيفته خلال ساعات الدوام.', 'الالتزام بالحضور والاحترام داخل بيئة العمل إلزامي.', 'يمنع إساءة استخدام الصلاحيات الوظيفية.', 'يجب التعامل مع المواطنين باحترام واحترافية.', 'أي مخالفة مهنية تُرفع للإدارة المختصة.'] }
+    ];
+
+    // ===== دالة الدخول =====
+    function loginWithUsername() {
+        var username = document.getElementById('usernameInput').value.trim();
+        if (username === '') {
+            alert('الرجاء إدخال اسمك!');
+            return;
+        }
+        currentUser = username;
+        localStorage.setItem('user', JSON.stringify({ username: username }));
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('mainSite').style.display = 'block';
+        loadPage('home');
+        showNotification('✅ مرحباً، ' + username + '!');
+        storeStats.visitors++;
+    }
+
+    function logout() {
+        try { localStorage.removeItem('user'); } catch(e) {}
+        currentUser = '';
+        document.getElementById('loginScreen').style.display = 'flex';
+        document.getElementById('mainSite').style.display = 'none';
+        document.getElementById('usernameInput').value = '';
+        document.getElementById('cartToggle').classList.remove('visible');
+    }
+
+    function showOrderNumber(number) {
+        currentOrderNumber = number;
+        document.getElementById('orderNumberText').textContent = number;
+        document.getElementById('orderBar').classList.add('show');
+        try { localStorage.setItem('lastOrderNumber', number); } catch(e) {}
+    }
+
+    function saveOrderNumber() {
+        if (currentOrderNumber) {
+            try { localStorage.setItem('savedOrderNumber', currentOrderNumber); } catch(e) {}
+            showNotification('✅ تم حفظ رقم الطلب: #' + currentOrderNumber);
+        }
+    }
+
+    function removeOrderNumber() {
+        currentOrderNumber = '';
+        document.getElementById('orderBar').classList.remove('show');
+        try { localStorage.removeItem('lastOrderNumber'); } catch(e) {}
+        showNotification('🗑️ تم إزالة رقم الطلب');
+    }
+
+    try { const savedOrder = localStorage.getItem('lastOrderNumber'); if (savedOrder) showOrderNumber(savedOrder); } catch(e) {}
+
+    function sendDiscordNotification(orderData) {
+        if (!WEBHOOK_URL) return;
+        const embed = {
+            title: '🛒 طلب جديد من المتجر',
+            color: 0xd4af37,
+            fields: [
+                { name: '👤 المشتري', value: orderData.username || 'زائر', inline: true },
+                { name: '📋 رقم الطلب', value: `#${orderData.orderNumber}`, inline: true },
+                { name: '📦 المنتجات', value: orderData.items || 'لا يوجد', inline: false },
+                { name: '💰 المجموع', value: orderData.total || '0 كريدت', inline: true },
+                { name: '📅 الوقت', value: new Date().toLocaleString('ar-EG'), inline: true }
+            ],
+            footer: { text: 'NEW PIXEL Store' },
+            timestamp: new Date().toISOString()
+        };
+        fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ embeds: [embed] }) }).catch(err => console.log('Webhook error:', err));
+    }
+
+    function loadPage(page) {
+        const content = document.getElementById('pageContent');
+        const pages = { home: getHomePage, store: getStorePage, jobs: getJobsPage, admin: getAdminPage, rules: getRulesPage, media: getMediaPage };
+        if (pages[page]) {
+            content.innerHTML = pages[page]();
+            document.querySelectorAll('.bottom-nav a[data-page]').forEach(link => {
+                link.classList.remove('active');
+                if (link.dataset.page === page) link.classList.add('active');
+            });
+            if (page === 'store') {
+                document.getElementById('cartToggle').classList.add('visible');
+                setTimeout(() => { updateCartUI(); renderStore(); }, 100);
+            } else {
+                document.getElementById('cartToggle').classList.remove('visible');
+            }
+        }
+    }
+
+    document.querySelectorAll('.bottom-nav a[data-page]').forEach(link => {
+        link.addEventListener('click', function(e) { e.preventDefault(); loadPage(this.dataset.page); });
+    });
+
+    // ===== الصفحة الرئيسية (معدلة) =====
+    function getHomePage() {
+        return `
+            <section class="section">
+                <div class="card-dark text-center" style="max-width:800px;margin:0 auto;">
+                    <img src="https://cdn.discordapp.com/attachments/1539097816138383370/1541195422121336994/file_0000000033f4824683e5a44fe3b4c43c.png?ex=6a8cb596&is=6a8b6416&hm=c11e4bf3818ec667f3cc10af332ef16f1d95ab391116d3101feb425466f64408&" style="width:100%;max-height:350px;object-fit:contain;border-radius:12px;margin-bottom:20px;">
+                    <h2 style="color:#d4af37;font-size:2.5rem;">NEW PIXEL</h2>
+                    <p style="color:#d4af37;font-size:1.2rem;">صلي على النبي</p>
+                    <p style="color:#9e9e9e;font-size:1.2rem;margin-top:10px;">لسنا الوحيدون ولكننا الافضل</p>
+                    <p style="color:#777;font-size:1rem;">We are not the only ones but we are the best</p>
+                    <div style="margin-top:20px;"><span style="display:inline-block;padding:4px 12px;border-radius:20px;background:#d4af37;color:#0a0a0a;font-weight:700;">🟢 المتجر مفتوح 😊</span></div>
+                </div>
+            </section>
+        `;
+    }
+
+    function getStorePage() {
+        return `
+            <section class="section">
+                <h2 class="section-title">🛍️ المتجر الاحترافي</h2>
+                <div class="store-grid">
+                    <div class="store-card card-realestate" onclick="selectCategory('realestate')">
+                        <h2>🏠 العقارات</h2>
+                        <p>محلات، مطاعم، بيوت، قصور</p>
+                    </div>
+                    <div class="store-card card-packages" onclick="selectCategory('packages')">
+                        <h2>📦 الحزم</h2>
+                        <p>حزم، VIP، سيارات، مستويات</p>
+                    </div>
+                    <div class="store-card card-gangs" onclick="selectCategory('gangs')">
+                        <h2>🔫 العصابات</h2>
+                        <p>فتح عصابه، سيارات، هيليكوبتر</p>
+                    </div>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="🔍 ابحث عن منتج..." oninput="updateSearch()">
+                    <button onclick="updateSearch()"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="stats-section">
+                    <div class="stat-card"><div class="stat-number">${storeStats.visitors}</div><div class="stat-label">👥 زوار اليوم</div></div>
+                    <div class="stat-card"><div class="stat-number">${storeStats.sales}</div><div class="stat-label">🛒 عمليات شراء</div></div>
+                </div>
+                <div class="subcategory-tabs" id="subcategoryTabs"></div>
+                <div id="storeProducts" class="product-grid"></div>
+            </section>
+        `;
+    }
+
+    function selectCategory(category) {
+        currentCategory = category;
+        currentSubcategory = 'all';
+        renderStore();
+        showNotification('📂 تم اختيار قسم: ' + (category === 'realestate' ? 'العقارات' : category === 'packages' ? 'الحزم' : 'العصابات'));
+    }
+
+    function updateSearch() {
+        searchQuery = document.getElementById('searchInput')?.value?.trim().toLowerCase() || '';
+        renderStore();
+    }
+
+    function renderStore() {
+        const container = document.getElementById('storeProducts');
+        const tabsContainer = document.getElementById('subcategoryTabs');
+        if (!container) return;
+        const categoryData = allProducts[currentCategory];
+        if (categoryData && tabsContainer) {
+            let tabsHtml = `<button class="active" onclick="setSubcategory('all', this)">الكل</button>`;
+            categoryData.subcategories.forEach(sub => { tabsHtml += `<button onclick="setSubcategory('${sub}', this)">${sub}</button>`; });
+            tabsContainer.innerHTML = tabsHtml;
+        }
+        let products = categoryData ? [...categoryData.items] : [];
+        if (currentSubcategory !== 'all') products = products.filter(p => p.subcategory === currentSubcategory);
+        if (searchQuery) products = products.filter(p => p.name.toLowerCase().includes(searchQuery) || p.subcategory.includes(searchQuery));
+        if (products.length === 0) { container.innerHTML = `<p style="color:#666;text-align:center;padding:40px;font-size:1.2rem;">❌ لا توجد منتجات تطابق البحث</p>`; return; }
+        let html = '';
+        products.forEach(p => {
+            html += `
+                <div class="product-card" style="background-image:url('${p.img}'); position:relative; cursor:pointer;" onclick="openProductDetail('${p.id}')">
+                    <h3>${p.name}</h3>
+                    <div class="price">💰 ${p.price} كريدت</div>
+                    <div class="quantity-control">
+                        <button onclick="event.stopPropagation(); changeQty('${p.id}', -1)">-</button>
+                        <span id="qty_${p.id}">1</span>
+                        <button onclick="event.stopPropagation(); changeQty('${p.id}', 1)">+</button>
+                    </div>
+                    <button class="add-btn" onclick="event.stopPropagation(); addToCartWithQty('${p.id}')">➕ أضف للسلة</button>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    const tempQtys = {};
+    function changeQty(productId, delta) {
+        if (!tempQtys[productId]) tempQtys[productId] = 1;
+        tempQtys[productId] = Math.max(1, tempQtys[productId] + delta);
+        const el = document.getElementById(`qty_${productId}`);
+        if (el) el.textContent = tempQtys[productId];
+    }
+    function getQty(productId) { return tempQtys[productId] || 1; }
+
+    function setSubcategory(sub, btn) {
+        currentSubcategory = sub;
+        document.querySelectorAll('.subcategory-tabs button').forEach(b => b.classList.remove('active'));
+        if (btn) btn.classList.add('active');
+        renderStore();
+    }
+
+    function addToCartWithQty(productId) {
+        const categoryData = allProducts[currentCategory];
+        const product = categoryData.items.find(p => p.id === productId);
+        if (!product) return;
+        const qty = getQty(productId);
+        addToCart(product, qty);
+    }
+
+    function openProductDetail(productId) {
+        const categoryData = allProducts[currentCategory];
+        const product = categoryData.items.find(p => p.id === productId);
+        if (!product) return;
+        detailProduct = product;
+        detailQty = 1;
+        document.getElementById('detailImage').src = product.img;
+        document.getElementById('detailName').textContent = product.name;
+        document.getElementById('detailPrice').textContent = `💰 ${product.price} كريدت`;
+        document.getElementById('detailDesc').textContent = product.desc || 'منتج مميز من NEW PIXEL';
+        document.getElementById('detailQty').textContent = 1;
+        document.getElementById('productDetailModal').classList.add('show');
+    }
+
+    function closeProductDetail() { document.getElementById('productDetailModal').classList.remove('show'); }
+    function changeDetailQty(delta) { detailQty = Math.max(1, detailQty + delta); document.getElementById('detailQty').textContent = detailQty; }
+    function addDetailToCart() { if (!detailProduct) return; addToCart(detailProduct, detailQty); closeProductDetail(); }
+
+    function addToCart(product, qty) {
+        const existing = cart.find(item => item.id === product.id);
+        if (existing) { existing.qty += qty; } else { cart.push({ ...product, qty: qty }); }
+        cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+        updateCartUI();
+        showNotification('➕ تم إضافة ' + product.name + ' (x' + qty + ') للسلة');
+    }
+
+    function removeFromCart(index) { cart.splice(index, 1); cartCount = cart.reduce((sum, item) => sum + item.qty, 0); updateCartUI(); }
+
+    function updateCartUI() {
+        document.getElementById('cartBadge').textContent = cartCount;
+        const container = document.getElementById('cartItems');
+        if (cart.length === 0) {
+            container.innerHTML = '<p style="color:#666;text-align:center;padding:20px;">السلة فارغة</p>';
+            document.getElementById('cartTotal').textContent = 'المجموع: 0 كريدت';
+            return;
+        }
+        let html = '';
+        let total = 0;
+        cart.forEach((item, index) => {
+            const priceNum = parsePrice(item.price);
+            const itemTotal = priceNum * item.qty;
+            total += itemTotal;
+            const priceDisplay = formatPrice(priceNum);
+            const totalDisplay = formatPrice(itemTotal);
+            html += `
+                <div class="cart-item">
+                    <div class="item-info">
+                        <img src="${item.img}" alt="">
+                        <div>
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-qty">الكمية: ${item.qty}</div>
+                            <div style="color:#777;font-size:0.7rem;">السعر: ${priceDisplay} كريدت</div>
+                        </div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:10px;">
+                        <span class="item-price">${totalDisplay} كريدت</span>
+                        <button onclick="removeFromCart(${index})" style="background:#d4af37;color:#0a0a0a;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">✕</button>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+        document.getElementById('cartTotal').textContent = 'المجموع: ' + formatPrice(total) + ' كريدت';
+    }
+
+    function toggleCart() { document.getElementById('cartSidebar').classList.toggle('open'); }
+
+    function checkout() {
+        if (cart.length === 0) { alert('السلة فارغة!'); return; }
+        const orderNumber = Math.floor(Math.random() * 1000000);
+        showOrderNumber(orderNumber);
+        let total = 0;
+        let itemsList = '';
+        cart.forEach(item => { const priceNum = parsePrice(item.price); total += priceNum * item.qty; itemsList += `${item.name} (x${item.qty}) - ${item.price}\n`; });
+        const orderData = { username: currentUser || 'زائر', orderNumber: orderNumber, items: itemsList || 'لا يوجد', total: formatPrice(total) + ' كريدت' };
+        sendDiscordNotification(orderData);
+        storeStats.sales += cart.reduce((sum, item) => sum + item.qty, 0);
+        cart = [];
+        cartCount = 0;
+        updateCartUI();
+        toggleCart();
+        showNotification('✅ تم إنهاء الطلب بنجاح! رقم الطلب: #' + orderNumber);
+    }
+
+    function getRulesPage() {
+        let lawsHtml = '';
+        laws.forEach(section => {
+            let rulesHtml = '';
+            section.rules.forEach((rule, index) => { rulesHtml += `<div class="law-item"><strong>${index + 1}.</strong> ${rule}</div>`; });
+            lawsHtml += `<div class="law-section"><h3>📜 ${section.title}</h3>${rulesHtml}</div>`;
+        });
+        return `
+            <section class="section">
+                <h2 class="section-title">📜 قوانين السيرفر</h2>
+                <div class="card-dark" style="max-width:900px;margin:0 auto;">
+                    <p style="color:#d4af37;text-align:center;font-size:1.1rem;margin-bottom:20px;">يرجى قراءة القوانين بعناية قبل الانضمام</p>
+                    <p style="color:#9e9e9e;text-align:center;margin-bottom:20px;">الالتزام بالقوانين إلزامي لجميع اللاعبين.</p>
+                    ${lawsHtml}
+                </div>
+            </section>
+        `;
+    }
+
+    function getJobsPage() {
+        let ministriesHtml = '';
+        ministries.forEach(m => {
+            ministriesHtml += `
+                <div class="ministry-card">
+                    <img src="${m.img}" alt="${m.name}" loading="lazy">
+                    <h3>${m.name}</h3>
+                    <div class="desc">${m.desc}</div>
+                    <div class="closed">🔒 غير مفعل</div>
+                </div>
+            `;
+        });
+        return `
+            <section class="section">
+                <h2 class="section-title">💼 الوظائف والوزارات</h2>
+                <div class="card-dark" style="max-width:1000px;margin:0 auto;text-align:center;">
+                    <p style="font-size:1.2rem;color:#d4af37;">🏛️ وزارات الدولة</p>
+                    <p style="color:#9e9e9e;margin-bottom:15px;">انضم إلى إحدى الوزارات للمساهمة في تطوير السيرفر</p>
+                    <div class="ministry-grid">${ministriesHtml}</div>
+                    <p style="color:#666;margin-top:20px;font-size:0.9rem;">⚠️ جميع الوزارات حالياً غير مفعلة - قريباً سيفتح باب التقديم</p>
+                </div>
+            </section>
+        `;
+    }
+
+    function getAdminPage() {
+        return `
+            <section class="section">
+                <h2 class="section-title">👑 الإدارة</h2>
+                <div class="admin-card" style="max-width:400px;margin:0 auto;">
+                    <p style="color:#666;font-size:1.2rem;">🚧 قائمة الإدارة قيد التحديث</p>
+                    <p style="color:#888;font-size:0.9rem;">سيتم الإعلان عن الطاقم الإداري قريباً</p>
+                </div>
+            </section>
+        `;
+    }
+
+    function getMediaPage() {
+        return `
+            <section class="section">
+                <h2 class="section-title">📸 الميديا</h2>
+                <div class="card-dark" style="max-width:800px;margin:0 auto;text-align:center;">
+                    <p style="color:#d4af37;font-size:1.3rem;">✅ قريباً - محتوى حصري من السيرفر</p>
+                    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px;">
+                        <div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);">
+                            <i class="fab fa-youtube" style="font-size:2rem;color:#ff0000;"></i>
+                            <p style="color:#9e9e9e;">يوتيوب</p>
+                        </div>
+                        <div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);">
+                            <i class="fab fa-tiktok" style="font-size:2rem;color:#000;"></i>
+                            <p style="color:#9e9e9e;">تيك توك</p>
+                        </div>
+                        <div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);">
+                            <i class="fab fa-instagram" style="font-size:2rem;color:#e4405f;"></i>
+                            <p style="color:#9e9e9e;">انستغرام</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        `;
+    }
+
+    function showNotification(msg) {
+        const old = document.querySelector('.notification-toast');
+        if (old) old.remove();
+        const div = document.createElement('div');
+        div.className = 'notification-toast';
+        div.style.cssText = 'position:fixed;bottom:150px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#e0e0e0;padding:12px 25px;border-radius:10px;border:1px solid #d4af37;z-index:2000;font-size:1rem;animation:fadeInUp 0.5s ease;';
+        div.textContent = msg;
+        document.body.appendChild(div);
+        setTimeout(() => { div.style.animation = 'fadeOutDown 0.5s ease'; setTimeout(() => div.remove(), 500); }, 3000);
+    }
+
+    window.onload = function() {
+        try {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.username) {
+                currentUser = user.username;
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainSite').style.display = 'block';
+                loadPage('home');
+                storeStats.visitors++;
+            }
+        } catch(e) {}
+    };
+</script>
+
+</body>
+</html>
