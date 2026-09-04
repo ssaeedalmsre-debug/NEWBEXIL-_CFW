@@ -9,16 +9,14 @@
     <style>
         *{font-family:'Cairo',sans-serif;margin:0;padding:0;box-sizing:border-box}
         body{background:#0a0a0a;color:#e0e0e0;min-height:100vh}
-        .bg-main{background-image:url('https://cdn.discordapp.com/attachments/1539408750316617901/1541191974495854682/SunBillB10.png?ex=6a8cb260&is=6a8b60e0&hm=27ead4dbae5d839778f898b4abc7843c574b9731c89283ff3470aa7595ca5453&');background-size:cover;background-position:center;background-attachment:fixed;min-height:100vh}
+        .bg-main{background-image:url('https://cdn.discordapp.com/attachments/1273293571205759038/1545263537490890832/bank01_LAw.png?ex=6a9b8250&is=6a9a30d0&hm=8025539bd5a3a2a0319f358317188fc97f634a2890fab265253139016e93a569&');background-size:cover;background-position:center;background-attachment:fixed;min-height:100vh}
         .bg-main::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:0}
         .content{position:relative;z-index:1;padding-bottom:80px}
-        .gold-text{color:#d4af37}
         .card-dark{background:rgba(20,20,20,0.85);backdrop-filter:blur(10px);border:1px solid rgba(212,175,55,0.2);border-radius:15px;padding:20px;transition:.3s}
         .card-dark:hover{transform:translateY(-5px);box-shadow:0 10px 40px rgba(212,175,55,0.1);border-color:rgba(212,175,55,0.5)}
         .login-screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px}
         .login-screen h1{font-size:3.5rem;font-weight:900;color:#d4af37;letter-spacing:5px;text-shadow:0 0 30px rgba(212,175,55,0.2)}
         .login-screen .sub-title{color:#d4af37;font-size:1.5rem;font-weight:700;margin:5px 0}
-        .login-screen .sub-title2{color:#9e9e9e;font-size:1.1rem;margin-bottom:20px}
         .login-input{background:rgba(255,255,255,0.03);border:2px solid rgba(212,175,55,0.3);border-radius:10px;padding:14px 20px;color:#e0e0e0;font-size:1.1rem;width:100%;max-width:350px;text-align:center;transition:.3s}
         .login-input:focus{border-color:#d4af37;outline:none;box-shadow:0 0 20px rgba(212,175,55,0.1)}
         .login-btn{background:#d4af37;color:#0a0a0a;padding:14px 50px;border-radius:50px;border:none;font-size:1.2rem;font-weight:700;cursor:pointer;transition:.3s;margin-top:15px}
@@ -39,9 +37,9 @@
         .store-card{border-radius:15px;padding:25px 20px;transition:.3s;cursor:pointer;color:#fff;text-shadow:0 0 15px rgba(0,0,0,0.9);min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;border:2px solid rgba(212,175,55,0.2);background-size:cover;background-position:center}
         .store-card:hover{transform:scale(1.03);box-shadow:0 10px 40px rgba(212,175,55,0.15);border-color:#d4af37}
         .store-card h2{font-size:2rem;font-weight:900;margin-bottom:5px;color:#d4af37}
-        .card-realestate{background-image:url('https://cdn.discordapp.com/attachments/1259131362615492658/1539342171147214908/Screenshot_------_com.openai.chatgpt.png?ex=6a85f79d&is=6a84a61d&hm=45866a2a667e4755d312d6af7e032a325001c237c61fe7605c63ba35c8a442fa&')}
-        .card-packages{background-image:url('https://cdn.discordapp.com/attachments/1259131362615492658/1539361981339795497/Screenshot_------_com.openai.chatgpt-3.png?ex=6a860a10&is=6a84b890&hm=ea677e4af8b5a44e9a13351e5dea75848c959e810fc5c3b6b10600cbf086d17e&')}
-        .card-gangs{background-image:url('https://cdn.discordapp.com/attachments/1259131362615492658/1539362866354856036/Screenshot_------_com.openai.chatgpt-2.png?ex=6a860ae3&is=6a84b963&hm=eb1ea33670a84812f9a4a9f8e9900a8669c1ab1a4c4d05066fb9d73958d4764f&')}
+        .card-realestate{background-image:url('https://cdn.discordapp.com/attachments/1273293571205759038/1545262626882322442/Screenshot_------_com.openai.chatgpt.png?ex=6a9b8177&is=6a9a2ff7&hm=2ea5f17ea321536ffb43733fd2d78b6cbee82ac41ce1d4d3b097289cc17b03fb&')}
+        .card-packages{background-image:url('https://cdn.discordapp.com/attachments/1273293571205759038/1545262626341130431/Screenshot_------_com.openai.chatgpt-3.png?ex=6a9b8177&is=6a9a2ff7&hm=f6a95720ca86fed0c23f0c4956c13985c0368ced866250b7c04fa38dd39eeec8&')}
+        .card-gangs{background-image:url('https://cdn.discordapp.com/attachments/1273293571205759038/1545262625741475900/Screenshot_------_com.openai.chatgpt-2.png?ex=6a9b8177&is=6a9a2ff7&hm=778a13ca82faaa74a231c9892d13cccc72ca20b6fbd5dfadfc8383e038937f4e&')}
         .product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;margin-top:20px}
         .product-card{border-radius:12px;padding:20px;transition:.3s;cursor:pointer;color:#fff;text-align:center;background-size:cover;background-position:center;border:2px solid rgba(212,175,55,0.15);text-shadow:0 0 15px rgba(0,0,0,0.9);position:relative;min-height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center}
         .product-card:hover{transform:translateY(-5px);border-color:#d4af37;box-shadow:0 10px 30px rgba(212,175,55,0.15)}
@@ -131,11 +129,10 @@
     <div class="content text-center">
         <h1>NEW PIXEL</h1>
         <p class="sub-title">#NEWPIXEL</p>
-        <p class="sub-title2">لست الوحيدين لإنتاج فصل</p>
-        <p style="color:#9e9e9e;font-size:1rem;margin-bottom:20px;">We are not the only ones but we are the best</p>
+        <p style="color:#9e9e9e;font-size:1.1rem;margin-bottom:20px;">We are not the only ones but we are the best</p>
         <input type="text" id="usernameInput" class="login-input" placeholder="أدخل اسمك..." value="">
         <button class="login-btn" onclick="loginWithUsername()">دخول 🎉</button>
-        <p class="tag" style="color:#555;font-size:.8rem;margin-top:20px;">NEW PIXEL</p>
+        <p style="color:#555;font-size:.8rem;margin-top:20px;">NEW PIXEL</p>
     </div>
 </div>
 
@@ -224,91 +221,372 @@
 </div>
 
 <script>
-// ===== المتغيرات =====
-let currentOrderNumber='',cart=[],cartCount=0,currentUser='',detailQty=1,detailProduct=null,currentSubcategory='all',currentCategory='realestate',searchQuery='',currentMinistry='';
-const submittedMinistries={};
-const WEBHOOK_URL='https://discord.com/api/webhooks/1541186749248577606/RxcEO0MvgFvLqUo96UXhq0a6hZFEaRzeVTvUpg04He3YFP6aiJHBo1yFxfy4FRmAnOSZ';
-const ministryWebhooks={
-'وزارة الداخلية':'https://discord.com/api/webhooks/1541260485347909692/Tc0DfLlAttbMKo0DzavhmtzLxD3JCjG0-xFK18ylyC3Zwjk8hd7LX_ovD3QZKdL90A8t',
-'وزارة الصحة':'https://discord.com/api/webhooks/1541265248823287881/H7hnHs48JaIb8fgN2wSRNIeH1CeyM157zJrHZGHwPGKa26hFgxt3nSboXj85wRYN-UZH',
-'القوات الخاصة':'https://discord.com/api/webhooks/1541261990998048788/JL92N-KjhtmN7XNGV3KISN0UmFsEtfmf3_aAYCPxhGM64XZlkUeKgO6XM2-N9dYnHSMZ',
-'وزارة الميكانيك':'https://discord.com/api/webhooks/1541265342565716040/RM8qopxWC8NgKTqTTsDbhz_s9wtNN2tk8fuH-_9_PW5raxWXiFCHg3uwtAlhYVC2y97P',
-'وزارة العدل':'https://discord.com/api/webhooks/1541268564428718230/EJliHQqbYLDh0JElXHUTjKVRhz9BkqfQp0uKl_UuIQ7EgE-D7GMCfBC2OBnbFlx5NRVM'
-};
+    // ===== المتغيرات =====
+    let currentOrderNumber = '';
+    let cart = [];
+    let cartCount = 0;
+    let currentUser = '';
+    let detailQty = 1;
+    let detailProduct = null;
+    let currentSubcategory = 'all';
+    let currentCategory = 'realestate';
+    let searchQuery = '';
+    let currentMinistry = '';
+    const submittedMinistries = {};
 
-function parsePrice(p){if(!p)return 0;let n=parseFloat(p.replace(/[^0-9.]/g,''));if(p.includes('M'))return n*1e6;if(p.includes('K'))return n*1e3;return n}
-function formatPrice(n){if(n>=1e6)return (n/1e6).toFixed(1)+'M';if(n>=1e3)return (n/1e3).toFixed(0)+'K';return n.toString()}
+    const WEBHOOK_URL = 'https://discord.com/api/webhooks/1545263669825249360/r0nKyDwLkheE6gAAeOomYgYLbVgvI_n2ncJFF6zGI3bsqcYdcOBoMAVfF8gdCXrIP6v1';
 
-const realestateImg='https://cdn.discordapp.com/attachments/1259131362615492658/1539342171147214908/Screenshot_------_com.openai.chatgpt.png?ex=6a85f79d&is=6a84a61d&hm=45866a2a667e4755d312d6af7e032a325001c237c61fe7605c63ba35c8a442fa&';
-const packagesImg='https://cdn.discordapp.com/attachments/1259131362615492658/1539361981339795497/Screenshot_------_com.openai.chatgpt-3.png?ex=6a860a10&is=6a84b890&hm=ea677e4af8b5a44e9a13351e5dea75848c959e810fc5c3b6b10600cbf086d17e&';
-const gangsImg='https://cdn.discordapp.com/attachments/1259131362615492658/1539362866354856036/Screenshot_------_com.openai.chatgpt-2.png?ex=6a860ae3&is=6a84b963&hm=eb1ea33670a84812f9a4a9f8e9900a8669c1ab1a4c4d05066fb9d73958d4764f&';
+    const ministryWebhooks = {
+        'وزارة الداخلية': 'https://discord.com/api/webhooks/1545256268686561353/OwcHKtBJ2L8ZF1crAJJIGAqtUULM51M-Rwz3qzlf_xCY1KXvaeTL5K7dREw2ITFemJsX',
+        'وزارة الصحة': 'https://discord.com/api/webhooks/1545257392147800075/a33duvRkejddTyI5HPHDxP8VnFxdoaICm06S_f5BK8U7n5Ls1ll8ui7VA2OiaX6RSo57',
+        'القوات الخاصة': 'https://discord.com/api/webhooks/1545257540240023572/wX440evjiXTGl0eDyjGym0j4WbF3dd2-LDL2-mOWiW5pWPcwp6Wxmq-CWiStpr-erMm2',
+        'وزارة الميكانيك': '',
+        'وزارة العدل': 'https://discord.com/api/webhooks/1545256773777100820/pGjTJRAg3JQvwR-PjTLtPXtYKEgEsWSlApZjvP0BQVL38MGvjuRpxKEBVxqeeJrg7G5Q'
+    };
 
-const allProducts={realestate:{subcategories:['عقارات'],items:[{id:'r1',name:'🏪 محل عام',price:'1M',img:realestateImg,subcategory:'عقارات',desc:'محل عام في موقع مميز'},{id:'r2',name:'🍽️ مطعم',price:'1M',img:realestateImg,subcategory:'عقارات',desc:'مطعم فاخر مع تجهيزات كاملة'},{id:'r3',name:'👕 محل ملابس',price:'1M',img:realestateImg,subcategory:'عقارات',desc:'محل ملابس في منطقة حيوية'},{id:'r4',name:'🏠 بيت صغير',price:'300K',img:realestateImg,subcategory:'عقارات',desc:'بيت صغير مناسب للعائلات الصغيرة'},{id:'r5',name:'🏘️ بيت متوسط',price:'500K',img:realestateImg,subcategory:'عقارات',desc:'بيت متوسط مع حديقة'},{id:'r6',name:'🏰 قصر',price:'1M',img:realestateImg,subcategory:'عقارات',desc:'قصر فاخر مع جميع المرافق'}]},
-packages:{subcategories:['حزم'],items:[{id:'p1',name:'🎒 حقيبة مستوى أول',price:'150K',img:packagesImg,subcategory:'حزم',desc:'حقيبة مستوى أول - للمبتدئين'},{id:'p2',name:'🎒 حقيبة مستوى ثاني',price:'250K',img:packagesImg,subcategory:'حزم',desc:'حقيبة مستوى ثاني - للمتقدمين'},{id:'p3',name:'🎒 حقيبة مستوى ثالث',price:'400K',img:packagesImg,subcategory:'حزم',desc:'حقيبة مستوى ثالث - للمحترفين'},{id:'p4',name:'🔫 مستوى تصنيع أسلحة 5',price:'500K',img:packagesImg,subcategory:'حزم',desc:'رفع مستوى تصنيع الأسلحة إلى 5'},{id:'p5',name:'👤 مستوى شخصي 5',price:'500K',img:packagesImg,subcategory:'حزم',desc:'رفع المستوى الشخصي إلى 5'},{id:'p6',name:'🚗 سيارة من اختيارك',price:'300K',img:packagesImg,subcategory:'حزم',desc:'سيارة من اختيارك مع ترخيص'},{id:'p7',name:'👑 VIP 1',price:'800K',img:packagesImg,subcategory:'حزم',desc:'عضوية VIP المستوى الأول'},{id:'p8',name:'👑 VIP 2',price:'1.5M',img:packagesImg,subcategory:'حزم',desc:'عضوية VIP المستوى الثاني'},{id:'p9',name:'👑 VIP 3',price:'2.5M',img:packagesImg,subcategory:'حزم',desc:'عضوية VIP المستوى الثالث'}]},
-gangs:{subcategories:['عصابات'],items:[{id:'g1',name:'⚔️ فتح عصابه جديده',price:'300K',img:gangsImg,subcategory:'عصابات',desc:'فتح عصابة جديدة بتصريح رسمي'},{id:'g2',name:'📋 استلام عصابه جاهزه',price:'50K',img:gangsImg,subcategory:'عصابات',desc:'استلام عصابة جاهزة للتشغيل'},{id:'g3',name:'🏢 سياج للمقر',price:'200K',img:gangsImg,subcategory:'عصابات',desc:'تأمين سياج لمقر العصابة'},{id:'g4',name:'📍 تغيير مقر العصابه',price:'250K',img:gangsImg,subcategory:'عصابات',desc:'تغيير موقع مقر العصابة'},{id:'g5',name:'🎨 تغير اسم ولون العصابه',price:'200K',img:gangsImg,subcategory:'عصابات',desc:'تغيير اسم ولون العصابة'},{id:'g6',name:'📦 تعبئة متيريال',price:'100K',img:gangsImg,subcategory:'عصابات',desc:'تعبئة مواد ومستلزمات العصابة'},{id:'g7',name:'🚗 سيارة للعصابه',price:'50K',img:gangsImg,subcategory:'عصابات',desc:'سيارة خاصة للعصابة'},{id:'g8',name:'🚁 هيلي كوبتر',price:'150K',img:gangsImg,subcategory:'عصابات',desc:'طائرة هليكوبتر للعصابة'}]}};
+    const ministryImages = {
+        'وزارة الداخلية': 'https://cdn.discordapp.com/attachments/1273293571205759038/1545259974442090546/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7eff&is=6a9a2d7f&hm=581e43d21092c67e8d08fb1e2604e1e52568af8a1415eb1ff97c975b59f197ee&',
+        'وزارة الصحة': 'https://cdn.discordapp.com/attachments/1273293571205759038/1545259999939399700/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f05&is=6a9a2d85&hm=4a47c24f653984d6ce86b6640af77ae0594ab4a33b577e8ee74c7f983b431c79&',
+        'القوات الخاصة': 'https://cdn.discordapp.com/attachments/1273293571205759038/1545260012652200128/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f08&is=6a9a2d88&hm=361a71af6a1692b5b681f48103a3274a2c2468273cd0a1d00f4ed6ea508aa398&',
+        'وزارة الميكانيك': 'https://cdn.discordapp.com/attachments/1273293571205759038/1545260017689694218/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f09&is=6a9a2d89&hm=4395520e10946bde727f926a3b3511c561b3329e82ae65e90b13020d45c400e1&',
+        'وزارة العدل': 'https://cdn.discordapp.com/attachments/1273293571205759038/1545260006893428807/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f07&is=6a9a2d87&hm=df89dc5cea5677116d11c628090a153adf6293e7ce1c30177cff9a02fd897261&'
+    };
 
-let storeStats={visitors:0,sales:0};
-const ministries=[
-{name:'وزارة الداخلية',img:'https://cdn.discordapp.com/attachments/1259131362615492658/1539368753106649158/IMG__.png?ex=6a86105e&is=6a84bede&hm=51e1101421586f3eef8b5c30173a38ad0478a3cca85d8753dfd86143258e0352&',desc:'الأمن والشرطة'},
-{name:'وزارة الصحة',img:'https://cdn.discordapp.com/attachments/1259131362615492658/1539368751642976408/IMG__-3.png?ex=6a86105e&is=6a84bede&hm=c71d6a51f8b3d3947825bf6369daa68a3261ce243c6cc797b1570c0043e636ac&',desc:'الخدمات الطبية'},
-{name:'وزارة الميكانيك',img:'https://cdn.discordapp.com/attachments/1259131362615492658/1539368750770290843/IMG__-4.png?ex=6a86105e&is=6a84bede&hm=1ac8c2424759c00c9e00f9545c60af49d6eeb2049c936fb7c9f6ef07e9dc052b&',desc:'الصيانة والمركبات'},
-{name:'وزارة العدل',img:'https://cdn.discordapp.com/attachments/1259131362615492658/1539368753735663706/IMG__-1.png?ex=6a86105e&is=6a84bede&hm=9dae60a110e0a3a4345ac49d69cf282b4e68cccc02fe1ced57b2aa31bcdc9408&',desc:'القضاء والقانون'},
-{name:'القوات الخاصة',img:'https://cdn.discordapp.com/attachments/1539097816138383370/1541195287521923082/jL1i3kobci4.jpg?ex=6a8cb576&is=6a8b63f6&hm=585390a526e3d392a76c0b03d5694a6d2c45ee4cf36f6731a008dabc497e63cc&',desc:'SPECIAL WEAPONS AND TACTICS'}];
+    function parsePrice(p) { if (!p) return 0; let n = parseFloat(p.replace(/[^0-9.]/g, '')); if (p.includes('M')) return n * 1000000; if (p.includes('K')) return n * 1000; return n; }
+    function formatPrice(n) { if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M'; if (n >= 1000) return (n / 1000).toFixed(0) + 'K'; return n.toString(); }
 
-// ===== الدوال الأساسية =====
-function loginWithUsername(){let u=document.getElementById('usernameInput').value.trim();if(!u){alert('الرجاء إدخال اسمك!');return}currentUser=u;localStorage.setItem('user',JSON.stringify({username:u}));document.getElementById('loginScreen').style.display='none';document.getElementById('mainSite').style.display='block';loadPage('home');showNotification('✅ مرحباً، '+u+'!');storeStats.visitors++}
-function logout(){localStorage.removeItem('user');currentUser='';document.getElementById('loginScreen').style.display='flex';document.getElementById('mainSite').style.display='none';document.getElementById('usernameInput').value='';document.getElementById('cartToggle').classList.remove('visible')}
-function showOrderNumber(n){currentOrderNumber=n;document.getElementById('orderNumberText').textContent=n;document.getElementById('orderBar').classList.add('show');localStorage.setItem('lastOrderNumber',n)}
-function saveOrderNumber(){if(currentOrderNumber){localStorage.setItem('savedOrderNumber',currentOrderNumber);showNotification('✅ تم حفظ رقم الطلب: #'+currentOrderNumber)}}
-function removeOrderNumber(){currentOrderNumber='';document.getElementById('orderBar').classList.remove('show');localStorage.removeItem('lastOrderNumber');showNotification('🗑️ تم إزالة رقم الطلب')}
-try{const s=localStorage.getItem('lastOrderNumber');if(s)showOrderNumber(s)}catch(e){}
+    const realestateImg = 'https://cdn.discordapp.com/attachments/1273293571205759038/1545262626882322442/Screenshot_------_com.openai.chatgpt.png?ex=6a9b8177&is=6a9a2ff7&hm=2ea5f17ea321536ffb43733fd2d78b6cbee82ac41ce1d4d3b097289cc17b03fb&';
+    const packagesImg = 'https://cdn.discordapp.com/attachments/1273293571205759038/1545262626341130431/Screenshot_------_com.openai.chatgpt-3.png?ex=6a9b8177&is=6a9a2ff7&hm=f6a95720ca86fed0c23f0c4956c13985c0368ced866250b7c04fa38dd39eeec8&';
+    const gangsImg = 'https://cdn.discordapp.com/attachments/1273293571205759038/1545262625741475900/Screenshot_------_com.openai.chatgpt-2.png?ex=6a9b8177&is=6a9a2ff7&hm=778a13ca82faaa74a231c9892d13cccc72ca20b6fbd5dfadfc8383e038937f4e&';
 
-function sendDiscordNotification(o){if(!WEBHOOK_URL)return;fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({embeds:[{title:'🛒 طلب جديد من المتجر',color:0xd4af37,fields:[{name:'👤 المشتري',value:o.username||'زائر',inline:true},{name:'📋 رقم الطلب',value:'#'+o.orderNumber,inline:true},{name:'📦 المنتجات',value:o.items||'لا يوجد',inline:false},{name:'💰 المجموع',value:o.total||'0 كريدت',inline:true},{name:'📅 الوقت',value:new Date().toLocaleString('ar-EG'),inline:true}],footer:{text:'NEW PIXEL Store'},timestamp:new Date().toISOString()}]})}).catch(e=>console.log('Webhook error:',e))}
+    const allProducts = {
+        realestate: { subcategories: ['عقارات'], items: [
+            { id: 'r1', name: '🏪 محل عام', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'محل عام في موقع مميز' },
+            { id: 'r2', name: '🍽️ مطعم', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'مطعم فاخر مع تجهيزات كاملة' },
+            { id: 'r3', name: '👕 محل ملابس', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'محل ملابس في منطقة حيوية' },
+            { id: 'r4', name: '🏠 بيت صغير', price: '300K', img: realestateImg, subcategory: 'عقارات', desc: 'بيت صغير مناسب للعائلات الصغيرة' },
+            { id: 'r5', name: '🏘️ بيت متوسط', price: '500K', img: realestateImg, subcategory: 'عقارات', desc: 'بيت متوسط مع حديقة' },
+            { id: 'r6', name: '🏰 قصر', price: '1M', img: realestateImg, subcategory: 'عقارات', desc: 'قصر فاخر مع جميع المرافق' }
+        ]},
+        packages: { subcategories: ['حزم'], items: [
+            { id: 'p1', name: '🎒 حقيبة مستوى أول', price: '150K', img: packagesImg, subcategory: 'حزم', desc: 'حقيبة مستوى أول - للمبتدئين' },
+            { id: 'p2', name: '🎒 حقيبة مستوى ثاني', price: '250K', img: packagesImg, subcategory: 'حزم', desc: 'حقيبة مستوى ثاني - للمتقدمين' },
+            { id: 'p3', name: '🎒 حقيبة مستوى ثالث', price: '400K', img: packagesImg, subcategory: 'حزم', desc: 'حقيبة مستوى ثالث - للمحترفين' },
+            { id: 'p4', name: '🔫 مستوى تصنيع أسلحة 5', price: '500K', img: packagesImg, subcategory: 'حزم', desc: 'رفع مستوى تصنيع الأسلحة إلى 5' },
+            { id: 'p5', name: '👤 مستوى شخصي 5', price: '500K', img: packagesImg, subcategory: 'حزم', desc: 'رفع المستوى الشخصي إلى 5' },
+            { id: 'p6', name: '🚗 سيارة من اختيارك', price: '300K', img: packagesImg, subcategory: 'حزم', desc: 'سيارة من اختيارك مع ترخيص' },
+            { id: 'p7', name: '👑 VIP 1', price: '800K', img: packagesImg, subcategory: 'حزم', desc: 'عضوية VIP المستوى الأول' },
+            { id: 'p8', name: '👑 VIP 2', price: '1.5M', img: packagesImg, subcategory: 'حزم', desc: 'عضوية VIP المستوى الثاني' },
+            { id: 'p9', name: '👑 VIP 3', price: '2.5M', img: packagesImg, subcategory: 'حزم', desc: 'عضوية VIP المستوى الثالث' }
+        ]},
+        gangs: { subcategories: ['عصابات'], items: [
+            { id: 'g1', name: '⚔️ فتح عصابه جديده', price: '300K', img: gangsImg, subcategory: 'عصابات', desc: 'فتح عصابة جديدة بتصريح رسمي' },
+            { id: 'g2', name: '📋 استلام عصابه جاهزه', price: '50K', img: gangsImg, subcategory: 'عصابات', desc: 'استلام عصابة جاهزة للتشغيل' },
+            { id: 'g3', name: '🏢 سياج للمقر', price: '200K', img: gangsImg, subcategory: 'عصابات', desc: 'تأمين سياج لمقر العصابة' },
+            { id: 'g4', name: '📍 تغيير مقر العصابه', price: '250K', img: gangsImg, subcategory: 'عصابات', desc: 'تغيير موقع مقر العصابة' },
+            { id: 'g5', name: '🎨 تغير اسم ولون العصابه', price: '200K', img: gangsImg, subcategory: 'عصابات', desc: 'تغيير اسم ولون العصابة' },
+            { id: 'g6', name: '📦 تعبئة متيريال', price: '100K', img: gangsImg, subcategory: 'عصابات', desc: 'تعبئة مواد ومستلزمات العصابة' },
+            { id: 'g7', name: '🚗 سيارة للعصابه', price: '50K', img: gangsImg, subcategory: 'عصابات', desc: 'سيارة خاصة للعصابة' },
+            { id: 'g8', name: '🚁 هيلي كوبتر', price: '150K', img: gangsImg, subcategory: 'عصابات', desc: 'طائرة هليكوبتر للعصابة' }
+        ]}
+    };
 
-function loadPage(p){const c=document.getElementById('pageContent');const pages={home:getHomePage,store:getStorePage,jobs:getJobsPage,admin:getAdminPage,rules:getRulesPage,media:getMediaPage};if(pages[p]){c.innerHTML=pages[p]();document.querySelectorAll('.bottom-nav a[data-page]').forEach(l=>{l.classList.remove('active');if(l.dataset.page===p)l.classList.add('active')});if(p==='store'){document.getElementById('cartToggle').classList.add('visible');setTimeout(()=>{updateCartUI();renderStore()},100)}else document.getElementById('cartToggle').classList.remove('visible')}}
-document.querySelectorAll('.bottom-nav a[data-page]').forEach(l=>{l.addEventListener('click',function(e){e.preventDefault();loadPage(this.dataset.page)})});
+    let storeStats = { visitors: 0, sales: 0 };
 
-function getHomePage(){return `<section class="section"><div class="card-dark text-center" style="max-width:800px;margin:0 auto;"><img src="https://cdn.discordapp.com/attachments/1539097816138383370/1541195422121336994/file_0000000033f4824683e5a44fe3b4c43c.png?ex=6a8cb596&is=6a8b6416&hm=c11e4bf3818ec667f3cc10af332ef16f1d95ab391116d3101feb425466f64408&" style="width:100%;max-height:350px;object-fit:contain;border-radius:12px;margin-bottom:20px;"><h2 style="color:#d4af37;font-size:2.5rem;">NEW PIXEL</h2><p style="color:#d4af37;font-size:1.2rem;">صلي على النبي</p><p style="color:#9e9e9e;font-size:1.2rem;margin-top:10px;">لسنا الوحيدون ولكننا الافضل</p><p style="color:#777;font-size:1rem;">We are not the only ones but we are the best</p><div style="margin-top:20px;"><span style="display:inline-block;padding:4px 12px;border-radius:20px;background:#d4af37;color:#0a0a0a;font-weight:700;">🟢 المتجر مفتوح 😊</span></div></div></section>`}
+    const ministries = [
+        { name: 'وزارة الداخلية', img: ministryImages['وزارة الداخلية'], desc: 'الأمن والشرطة' },
+        { name: 'وزارة الصحة', img: ministryImages['وزارة الصحة'], desc: 'الخدمات الطبية' },
+        { name: 'وزارة الميكانيك', img: ministryImages['وزارة الميكانيك'], desc: 'الصيانة والمركبات' },
+        { name: 'وزارة العدل', img: ministryImages['وزارة العدل'], desc: 'القضاء والقانون' },
+        { name: 'القوات الخاصة', img: ministryImages['القوات الخاصة'], desc: 'SPECIAL WEAPONS AND TACTICS' }
+    ];
 
-function getStorePage(){return `<section class="section"><h2 class="section-title">🛍️ المتجر الاحترافي</h2><div class="store-grid"><div class="store-card card-realestate" onclick="selectCategory('realestate')"><h2>🏠 العقارات</h2><p>محلات، مطاعم، بيوت، قصور</p></div><div class="store-card card-packages" onclick="selectCategory('packages')"><h2>📦 الحزم</h2><p>حزم، VIP، سيارات، مستويات</p></div><div class="store-card card-gangs" onclick="selectCategory('gangs')"><h2>🔫 العصابات</h2><p>فتح عصابه، سيارات، هيليكوبتر</p></div></div><div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 ابحث عن منتج..." oninput="updateSearch()"><button onclick="updateSearch()"><i class="fas fa-search"></i></button></div><div class="stats-section"><div class="stat-card"><div class="stat-number">${storeStats.visitors}</div><div class="stat-label">👥 زوار اليوم</div></div><div class="stat-card"><div class="stat-number">${storeStats.sales}</div><div class="stat-label">🛒 عمليات شراء</div></div></div><div class="subcategory-tabs" id="subcategoryTabs"></div><div id="storeProducts" class="product-grid"></div></section>`}
+    const laws = [
+        { title: 'قوانين الحياة الحديثة — NLR', rules: ['عند موتك داخل اللعبة تبدأ حياة جديدة كلياً، ولا يحق لك تذكر أي حدث وقع قبل موتك.', 'يمنع العودة إلى نفس المكان الذي متّ فيه خلال 15 دقيقة على الأقل.', 'لا يحق لك الانتقام من الشخص الذي قتلك في نفس السيناريو.', 'إذا متّ أثناء عملية (خطف، سرقة، مطاردة) لا يحق لك العودة للمشاركة فيها مجدداً.', 'مخالفة NLR تُعدّ من المخالفات الجسيمة وتستوجب عقوبة من الإدارة.'] },
+        { title: 'بور جيمنج — PowerGaming', rules: ['يمنع إجبار اللاعبين على القيام بأفعال لا يرغبون بها دون منحهم فرصة للرد أو التصرف.', 'يمنع استخدام قدرات أو أفعال خارجة عن إطار الرول بلاي الواقعي.', 'يجب أن تكون جميع الأفعال والسيناريوهات قابلة للتصديق ضمن عالم الرول بلاي.', 'يمنع تنفيذ أفعال معقدة متعددة في آن واحد بشكل غير واقعي.', 'المخالفة المتعمدة لقواعد PowerGaming تستوجب إجراءات من الإدارة.'] },
+        { title: 'الخوف على الحياة — NVL', rules: ['يجب على كل لاعب أن يتصرف كما لو أن حياته ذات قيمة حقيقية.', 'إذا وُجّه إليك سلاح على مسافة قريبة ومن شخص متمكن، يجب الامتثال لأوامره.', 'يمنع الاستهتار بحياة شخصيتك مثل مواجهة مجموعة مسلحة بيديك فارغتين.', 'يمنع أداء أفعال انتحارية بشكل متكرر أو بدون مبرر رول بلاي واقعي.', 'مخالفة NVL تُعدّ من أخطر المخالفات وتستوجب عقوبة صارمة.'] },
+        { title: 'الميتا جيمنج — Metagaming', rules: ['يمنع استخدام أي معلومة حصلت عليها خارج اللعبة (بث، دسكورد، واتساب...) داخل اللعبة.', 'يمنع التنسيق مع لاعبين آخرين عبر قنوات خارجية أثناء السيناريو.', 'المعلومة لا تكون صالحة للاستخدام إلا إذا حصلت عليها عبر شخصيتك داخل اللعبة مباشرةً.', 'يُعدّ مشاهدة بث لاعب آخر ثم استخدام ما رآه ضده Metagaming صريح.', 'مخالفة هذا القانون تستوجب إجراءات فورية من الإدارة.'] },
+        { title: 'القتل العشوائي — RDM / VDM', rules: ['يمنع قتل أي لاعب بدون سبب رول بلاي واضح ومبرر مسبق.', 'يجب أن يسبق أي قتل تصعيد درامي كافٍ داخل اللعبة.', 'يمنع استخدام السيارة كسلاح لدهس لاعبين عشوائياً.', 'حتى في الحروب بين العصابات يجب أن يكون هناك سبب رول بلاي معلن مسبقاً.', 'مخالفة RDM أو VDM تستوجب عقوبة حسب درجة المخالفة.'] },
+        { title: 'القوانين العامة', rules: ['الاحترام المتبادل بين جميع اللاعبين داخل وخارج اللعبة إلزامي.', 'يمنع التحرش أو الإساءة اللفظية أو العنصرية بأي شكل كان.', 'يمنع استغلال الأخطاء البرمجية أو الثغرات ويجب الإبلاغ عنها.', 'الالتزام بقرارات الإدارة إلزامي ويمكن الاعتراض عبر القنوات الرسمية فقط.', 'يمنع انتحال صفة أعضاء الإدارة أو الطاقم الرسمي.', 'يُمنع نشر معلومات شخصية لأي لاعب.'] },
+        { title: 'نظام الإنذارات', rules: ['كل مخالفة قد تُفضي إلى إنذار يُسجل في ملف اللاعب.', '3 إنذارات تراكمية تستوجب إيقافاً مؤقتاً.', '5 إنذارات تراكمية قد تصل للحظر الدائم.', 'يمكن الطعن في أي إنذار خلال 48 ساعة.', 'المخالفات الخطيرة قد تؤدي إلى حظر فوري.'] },
+        { title: 'قوانين الشرطة', rules: ['يجب ارتداء الزي الرسمي الكامل أثناء الخدمة.', 'يمنع استخدام القوة المفرطة بدون مبرر رول بلاي واضح.', 'التدرج في التعامل إلزامي.', 'يمنع الإفراج عن موقوف دون تصريح مسؤول.', 'يجب توثيق جميع العمليات والاعتقالات.'] },
+        { title: 'قوانين الإسعاف', rules: ['الإسعاف جهة محايدة ويمنع الانحياز لأي طرف.', 'يجب إسعاف الجميع بغض النظر عن هويتهم.', 'يمنع حمل أسلحة هجومية أثناء الخدمة.', 'يجب ارتداء الزي الرسمي الكامل طوال فترة الخدمة.', 'سيارة الإسعاف محمية أثناء المهام.'] },
+        { title: 'قوانين العصابات', rules: ['يجب أن يكون لكل عصابة هيكل تنظيمي واضح ومعتمد من الإدارة.', 'الحروب تستلزم إعلاناً رسمياً وموافقة إدارية مسبقة.', 'يمنع استهداف المدنيين أو لاعبين خارج نطاق النزاع.', 'يمنع السطو دون الشروط المطلوبة من الإدارة.', 'أي عصابة بدون اعتماد رسمي تُعد غير شرعية.'] },
+        { title: 'قوانين العمل', rules: ['يجب على كل موظف ارتداء الزي الرسمي لوظيفته خلال ساعات الدوام.', 'الالتزام بالحضور والاحترام داخل بيئة العمل إلزامي.', 'يمنع إساءة استخدام الصلاحيات الوظيفية.', 'يجب التعامل مع المواطنين باحترام واحترافية.', 'أي مخالفة مهنية تُرفع للإدارة المختصة.'] }
+    ];
 
-function selectCategory(c){currentCategory=c;currentSubcategory='all';renderStore();showNotification('📂 تم اختيار قسم: '+(c==='realestate'?'العقارات':c==='packages'?'الحزم':'العصابات'))}
-function updateSearch(){searchQuery=document.getElementById('searchInput')?.value?.trim().toLowerCase()||'';renderStore()}
-function renderStore(){const container=document.getElementById('storeProducts');const tabs=document.getElementById('subcategoryTabs');if(!container)return;const data=allProducts[currentCategory];if(data&&tabs){let h='<button class="active" onclick="setSubcategory(\'all\',this)">الكل</button>';data.subcategories.forEach(s=>{h+=`<button onclick="setSubcategory('${s}',this)">${s}</button>`});tabs.innerHTML=h}let products=data?[...data.items]:[];if(currentSubcategory!=='all')products=products.filter(p=>p.subcategory===currentSubcategory);if(searchQuery)products=products.filter(p=>p.name.toLowerCase().includes(searchQuery)||p.subcategory.includes(searchQuery));if(!products.length){container.innerHTML='<p style="color:#666;text-align:center;padding:40px;font-size:1.2rem;">❌ لا توجد منتجات تطابق البحث</p>';return}let h='';products.forEach(p=>{h+=`<div class="product-card" style="background-image:url('${p.img}');position:relative;cursor:pointer;" onclick="openProductDetail('${p.id}')"><h3>${p.name}</h3><div class="price">💰 ${p.price} كريدت</div><div class="quantity-control"><button onclick="event.stopPropagation();changeQty('${p.id}',-1)">-</button><span id="qty_${p.id}">1</span><button onclick="event.stopPropagation();changeQty('${p.id}',1)">+</button></div><button class="add-btn" onclick="event.stopPropagation();addToCartWithQty('${p.id}')">➕ أضف للسلة</button></div>`});container.innerHTML=h}
+    // ===== دالة الدخول (معدلة) =====
+    function loginWithUsername() {
+        var username = document.getElementById('usernameInput').value.trim();
+        if (username === '') {
+            alert('الرجاء إدخال اسمك!');
+            return;
+        }
+        currentUser = username;
+        localStorage.setItem('user', JSON.stringify({ username: username }));
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('mainSite').style.display = 'block';
+        loadPage('home');
+        showNotification('✅ مرحباً، ' + username + '!');
+        storeStats.visitors++;
+    }
 
-const tempQtys={};
-function changeQty(id,d){if(!tempQtys[id])tempQtys[id]=1;tempQtys[id]=Math.max(1,tempQtys[id]+d);const el=document.getElementById('qty_'+id);if(el)el.textContent=tempQtys[id]}
-function getQty(id){return tempQtys[id]||1}
-function setSubcategory(sub,btn){currentSubcategory=sub;document.querySelectorAll('.subcategory-tabs button').forEach(b=>b.classList.remove('active'));if(btn)btn.classList.add('active');renderStore()}
-function addToCartWithQty(id){const data=allProducts[currentCategory];const p=data.items.find(item=>item.id===id);if(!p)return;addToCart(p,getQty(id))}
-function openProductDetail(id){const data=allProducts[currentCategory];const p=data.items.find(item=>item.id===id);if(!p)return;detailProduct=p;detailQty=1;document.getElementById('detailImage').src=p.img;document.getElementById('detailName').textContent=p.name;document.getElementById('detailPrice').textContent='💰 '+p.price+' كريدت';document.getElementById('detailDesc').textContent=p.desc||'منتج مميز من NEW PIXEL';document.getElementById('detailQty').textContent=1;document.getElementById('productDetailModal').classList.add('show')}
-function closeProductDetail(){document.getElementById('productDetailModal').classList.remove('show')}
-function changeDetailQty(d){detailQty=Math.max(1,detailQty+d);document.getElementById('detailQty').textContent=detailQty}
-function addDetailToCart(){if(!detailProduct)return;addToCart(detailProduct,detailQty);closeProductDetail()}
-function addToCart(p,q){const existing=cart.find(item=>item.id===p.id);if(existing)existing.qty+=q;else cart.push({...p,qty:q});cartCount=cart.reduce((s,i)=>s+i.qty,0);updateCartUI();showNotification('➕ تم إضافة '+p.name+' (x'+q+') للسلة')}
-function removeFromCart(i){cart.splice(i,1);cartCount=cart.reduce((s,item)=>s+item.qty,0);updateCartUI()}
-function updateCartUI(){document.getElementById('cartBadge').textContent=cartCount;const container=document.getElementById('cartItems');if(!cart.length){container.innerHTML='<p style="color:#666;text-align:center;padding:20px;">السلة فارغة</p>';document.getElementById('cartTotal').textContent='المجموع: 0 كريدت';return}let h='',total=0;cart.forEach((item,i)=>{const priceNum=parsePrice(item.price);const itemTotal=priceNum*item.qty;total+=itemTotal;h+=`<div class="cart-item"><div class="item-info"><img src="${item.img}" alt=""><div><div class="item-name">${item.name}</div><div class="item-qty">الكمية: ${item.qty}</div><div style="color:#777;font-size:0.7rem;">السعر: ${formatPrice(priceNum)} كريدت</div></div></div><div style="display:flex;align-items:center;gap:10px;"><span class="item-price">${formatPrice(itemTotal)} كريدت</span><button onclick="removeFromCart(${i})" style="background:#d4af37;color:#0a0a0a;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">✕</button></div></div>`});container.innerHTML=h;document.getElementById('cartTotal').textContent='المجموع: '+formatPrice(total)+' كريدت'}
-function toggleCart(){document.getElementById('cartSidebar').classList.toggle('open')}
-function checkout(){if(!cart.length){alert('السلة فارغة!');return}const orderNumber=Math.floor(Math.random()*1000000);showOrderNumber(orderNumber);let total=0,items='';cart.forEach(item=>{const priceNum=parsePrice(item.price);total+=priceNum*item.qty;items+=item.name+' (x'+item.qty+') - '+item.price+'\n'});sendDiscordNotification({username:currentUser||'زائر',orderNumber:orderNumber,items:items||'لا يوجد',total:formatPrice(total)+' كريدت'});storeStats.sales+=cart.reduce((s,i)=>s+i.qty,0);cart=[];cartCount=0;updateCartUI();toggleCart();showNotification('✅ تم إنهاء الطلب بنجاح! رقم الطلب: #'+orderNumber)}
+    function logout() {
+        try { localStorage.removeItem('user'); } catch(e) {}
+        currentUser = '';
+        document.getElementById('loginScreen').style.display = 'flex';
+        document.getElementById('mainSite').style.display = 'none';
+        document.getElementById('usernameInput').value = '';
+        document.getElementById('cartToggle').classList.remove('visible');
+    }
 
-// ===== الاستبيان =====
-function openSurvey(name){if(submittedMinistries[name]){showNotification('⚠️ لقد تقدمت بالفعل لهذه الوزارة، انتظر الرد في الديسكورد');return}currentMinistry=name;document.getElementById('surveyTitle').textContent='📋 التقديم - '+name;document.getElementById('surveyForm').style.display='block';document.getElementById('afterSubmit').classList.remove('show');document.getElementById('surveyDiscord').value='';document.getElementById('surveyGameName').value='';document.getElementById('surveyAge').value='';document.getElementById('surveyExperience').value='';document.getElementById('surveyHours').value='';document.getElementById('surveyPrevious').value='';document.getElementById('surveyOverlay').classList.add('open')}
-function closeSurvey(){document.getElementById('surveyOverlay').classList.remove('open')}
-function submitSurvey(){const discord=document.getElementById('surveyDiscord').value.trim();const gameName=document.getElementById('surveyGameName').value.trim();const age=document.getElementById('surveyAge').value.trim();const experience=document.getElementById('surveyExperience').value.trim();const hours=document.getElementById('surveyHours').value.trim();const previous=document.getElementById('surveyPrevious').value.trim();if(!discord||!gameName||!age||!experience||!hours||!previous){showNotification('❌ الرجاء ملء جميع الخانات!');return}const webhook=ministryWebhooks[currentMinistry];if(!webhook){showNotification('❌ خطأ: لا يوجد Webhook لهذه الوزارة');return}fetch(webhook,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({embeds:[{title:'📋 طلب تقديم جديد - '+currentMinistry,color:0x00cc44,fields:[{name:'🆔 يوزر الديسكورد',value:discord,inline:true},{name:'👤 اسمك في اللعبة',value:gameName,inline:true},{name:'📅 عمرك الحقيقي',value:age,inline:true},{name:'⭐ خبراتك الوظيفيه',value:experience||'غير مذكور',inline:false},{name:'🕐 ساعات تفاعلك',value:hours||'غير مذكور',inline:true},{name:'🏢 جهة عملك السابقة',value:previous||'غير مذكور',inline:true},{name:'📝 وقت التقديم',value:new Date().toLocaleString('ar-EG'),inline:true}],footer:{text:'NEW PIXEL - تقديم '+currentMinistry},timestamp:new Date().toISOString()}]})}).then(()=>{submittedMinistries[currentMinistry]=true;updateMinistryCard(currentMinistry);document.getElementById('surveyForm').style.display='none';document.getElementById('afterSubmit').classList.add('show');showNotification('✅ تم إرسال تقديمك بنجاح!')}).catch(()=>{showNotification('❌ حدث خطأ في الإرسال، حاول مجدداً')})}
-function updateMinistryCard(name){try{const s=JSON.parse(localStorage.getItem('submittedMinistries')||'{}');s[name]=true;localStorage.setItem('submittedMinistries',JSON.stringify(s))}catch(e){}loadPage('jobs')}
+    function showOrderNumber(n) {
+        currentOrderNumber = n;
+        document.getElementById('orderNumberText').textContent = n;
+        document.getElementById('orderBar').classList.add('show');
+        try { localStorage.setItem('lastOrderNumber', n); } catch(e) {}
+    }
 
-// ===== الصفحات الأخرى =====
-function getJobsPage(){let s={};try{s=JSON.parse(localStorage.getItem('submittedMinistries')||'{}')}catch(e){}let h='';ministries.forEach(m=>{const has=!!ministryWebhooks[m.name];const sub=s[m.name]||false;h+=`<div class="ministry-card"><img src="${m.img}" alt="${m.name}" loading="lazy"><h3>${m.name}</h3><div class="desc">${m.desc}</div>${has?(sub?'<div class="wait-msg-card show" style="color:#ff4444;font-weight:700;font-size:.9rem;margin-top:8px;">⏳ انتظر الرد في الديسكورد</div>':'<button class="apply-btn" onclick="openSurvey(\''+m.name+'\')">✅ للتقديم اضغط هنا</button>'):'<div class="closed" style="color:#ff4444;font-weight:700;margin-top:5px;font-size:.9rem;">🔒 غير مفعل</div>'}</div>`});return `<section class="section"><h2 class="section-title">💼 الوظائف والوزارات</h2><div class="card-dark" style="max-width:1000px;margin:0 auto;text-align:center;"><p style="font-size:1.2rem;color:#d4af37;">🏛️ وزارات الدولة</p><p style="color:#9e9e9e;margin-bottom:15px;">انضم إلى إحدى الوزارات للمساهمة في تطوير السيرفر</p><div class="ministry-grid">${h}</div><p style="color:#666;margin-top:20px;font-size:.9rem;">⚠️ جميع الوزارات حالياً غير مفعلة - قريباً سيفتح باب التقديم</p></div></section>`}
+    function saveOrderNumber() {
+        if (currentOrderNumber) {
+            try { localStorage.setItem('savedOrderNumber', currentOrderNumber); } catch(e) {}
+            showNotification('✅ تم حفظ رقم الطلب: #' + currentOrderNumber);
+        }
+    }
 
-function getAdminPage(){return `<section class="section"><h2 class="section-title">👑 الإدارة</h2><div class="admin-card" style="max-width:400px;margin:0 auto;"><p style="color:#666;font-size:1.2rem;">🚧 قائمة الإدارة قيد التحديث</p><p style="color:#888;font-size:.9rem;">سيتم الإعلان عن الطاقم الإداري قريباً</p></div></section>`}
+    function removeOrderNumber() {
+        currentOrderNumber = '';
+        document.getElementById('orderBar').classList.remove('show');
+        try { localStorage.removeItem('lastOrderNumber'); } catch(e) {}
+        showNotification('🗑️ تم إزالة رقم الطلب');
+    }
 
-function getMediaPage(){return `<section class="section"><h2 class="section-title">📸 الميديا</h2><div class="card-dark" style="max-width:800px;margin:0 auto;text-align:center;"><p style="color:#d4af37;font-size:1.3rem;">✅ قريباً - محتوى حصري من السيرفر</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px;"><div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);"><i class="fab fa-youtube" style="font-size:2rem;color:#ff0000;"></i><p style="color:#9e9e9e;">يوتيوب</p></div><div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);"><i class="fab fa-tiktok" style="font-size:2rem;color:#000;"></i><p style="color:#9e9e9e;">تيك توك</p></div><div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);"><i class="fab fa-instagram" style="font-size:2rem;color:#e4405f;"></i><p style="color:#9e9e9e;">انستغرام</p></div></div></div></section>`}
+    try { const saved = localStorage.getItem('lastOrderNumber'); if (saved) showOrderNumber(saved); } catch(e) {}
 
-function getRulesPage(){const laws=[{title:'قوانين الحياة الحديثة — NLR',rules:['عند موتك داخل اللعبة تبدأ حياة جديدة كلياً، ولا يحق لك تذكر أي حدث وقع قبل موتك.','يمنع العودة إلى نفس المكان الذي متّ فيه خلال 15 دقيقة على الأقل.','لا يحق لك الانتقام من الشخص الذي قتلك في نفس السيناريو.','إذا متّ أثناء عملية (خطف، سرقة، مطاردة) لا يحق لك العودة للمشاركة فيها مجدداً.','مخالفة NLR تُعدّ من المخالفات الجسيمة وتستوجب عقوبة من الإدارة.']},{title:'بور جيمنج — PowerGaming',rules:['يمنع إجبار اللاعبين على القيام بأفعال لا يرغبون بها دون منحهم فرصة للرد أو التصرف.','يمنع استخدام قدرات أو أفعال خارجة عن إطار الرول بلاي الواقعي.','يجب أن تكون جميع الأفعال والسيناريوهات قابلة للتصديق ضمن عالم الرول بلاي.','يمنع تنفيذ أفعال معقدة متعددة في آن واحد بشكل غير واقعي.','المخالفة المتعمدة لقواعد PowerGaming تستوجب إجراءات من الإدارة.']},{title:'الخوف على الحياة — NVL',rules:['يجب على كل لاعب أن يتصرف كما لو أن حياته ذات قيمة حقيقية.','إذا وُجّه إليك سلاح على مسافة قريبة ومن شخص متمكن، يجب الامتثال لأوامره.','يمنع الاستهتار بحياة شخصيتك مثل مواجهة مجموعة مسلحة بيديك فارغتين.','يمنع أداء أفعال انتحارية بشكل متكرر أو بدون مبرر رول بلاي واقعي.','مخالفة NVL تُعدّ من أخطر المخالفات وتستوجب عقوبة صارمة.']},{title:'الميتا جيمنج — Metagaming',rules:['يمنع استخدام أي معلومة حصلت عليها خارج اللعبة (بث، دسكورد، واتساب...) داخل اللعبة.','يمنع التنسيق مع لاعبين آخرين عبر قنوات خارجية أثناء السيناريو.','المعلومة لا تكون صالحة للاستخدام إلا إذا حصلت عليها عبر شخصيتك داخل اللعبة مباشرةً.','يُعدّ مشاهدة بث لاعب آخر ثم استخدام ما رآه ضده Metagaming صريح.','مخالفة هذا القانون تستوجب إجراءات فورية من الإدارة.']},{title:'القتل العشوائي — RDM / VDM',rules:['يمنع قتل أي لاعب بدون سبب رول بلاي واضح ومبرر مسبق.','يجب أن يسبق أي قتل تصعيد درامي كافٍ داخل اللعبة.','يمنع استخدام السيارة كسلاح لدهس لاعبين عشوائياً.','حتى في الحروب بين العصابات يجب أن يكون هناك سبب رول بلاي معلن مسبقاً.','مخالفة RDM أو VDM تستوجب عقوبة حسب درجة المخالفة.']},{title:'القوانين العامة',rules:['الاحترام المتبادل بين جميع اللاعبين داخل وخارج اللعبة إلزامي.','يمنع التحرش أو الإساءة اللفظية أو العنصرية بأي شكل كان.','يمنع استغلال الأخطاء البرمجية أو الثغرات ويجب الإبلاغ عنها.','الالتزام بقرارات الإدارة إلزامي ويمكن الاعتراض عبر القنوات الرسمية فقط.','يمنع انتحال صفة أعضاء الإدارة أو الطاقم الرسمي.','يُمنع نشر معلومات شخصية لأي لاعب.']},{title:'نظام الإنذارات',rules:['كل مخالفة قد تُفضي إلى إنذار يُسجل في ملف اللاعب.','3 إنذارات تراكمية تستوجب إيقافاً مؤقتاً.','5 إنذارات تراكمية قد تصل للحظر الدائم.','يمكن الطعن في أي إنذار خلال 48 ساعة.','المخالفات الخطيرة قد تؤدي إلى حظر فوري.']},{title:'قوانين الشرطة',rules:['يجب ارتداء الزي الرسمي الكامل أثناء الخدمة.','يمنع استخدام القوة المفرطة بدون مبرر رول بلاي واضح.','التدرج في التعامل إلزامي.','يمنع الإفراج عن موقوف دون تصريح مسؤول.','يجب توثيق جميع العمليات والاعتقالات.']},{title:'قوانين الإسعاف',rules:['الإسعاف جهة محايدة ويمنع الانحياز لأي طرف.','يجب إسعاف الجميع بغض النظر عن هويتهم.','يمنع حمل أسلحة هجومية أثناء الخدمة.','يجب ارتداء الزي الرسمي الكامل طوال فترة الخدمة.','سيارة الإسعاف محمية أثناء المهام.']},{title:'قوانين العصابات',rules:['يجب أن يكون لكل عصابة هيكل تنظيمي واضح ومعتمد من الإدارة.','الحروب تستلزم إعلاناً رسمياً وموافقة إدارية مسبقة.','يمنع استهداف المدنيين أو لاعبين خارج نطاق النزاع.','يمنع السطو دون الشروط المطلوبة من الإدارة.','أي عصابة بدون اعتماد رسمي تُعد غير شرعية.']},{title:'قوانين العمل',rules:['يجب على كل موظف ارتداء الزي الرسمي لوظيفته خلال ساعات الدوام.','الالتزام بالحضور والاحترام داخل بيئة العمل إلزامي.','يمنع إساءة استخدام الصلاحيات الوظيفية.','يجب التعامل مع المواطنين باحترام واحترافية.','أي مخالفة مهنية تُرفع للإدارة المختصة.']}];let h='';laws.forEach(s=>{let r='';s.rules.forEach((rule,i)=>{r+=`<div class="law-item"><strong>${i+1}.</strong> ${rule}</div>`});h+=`<div class="law-section"><h3>📜 ${s.title}</h3>${r}</div>`});return `<section class="section"><h2 class="section-title">📜 قوانين السيرفر</h2><div class="card-dark" style="max-width:900px;margin:0 auto;"><p style="color:#d4af37;text-align:center;font-size:1.1rem;margin-bottom:20px;">يرجى قراءة القوانين بعناية قبل الانضمام</p><p style="color:#9e9e9e;text-align:center;margin-bottom:20px;">الالتزام بالقوانين إلزامي لجميع اللاعبين.</p>${h}</div></section>`}
+    function sendDiscordNotification(o) {
+        if (!WEBHOOK_URL) return;
+        fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                embeds: [{
+                    title: '🛒 طلب جديد من المتجر',
+                    color: 0xd4af37,
+                    fields: [
+                        { name: '👤 المشتري', value: o.username || 'زائر', inline: true },
+                        { name: '📋 رقم الطلب', value: '#' + o.orderNumber, inline: true },
+                        { name: '📦 المنتجات', value: o.items || 'لا يوجد', inline: false },
+                        { name: '💰 المجموع', value: o.total || '0 كريدت', inline: true },
+                        { name: '📅 الوقت', value: new Date().toLocaleString('ar-EG'), inline: true }
+                    ],
+                    footer: { text: 'NEW PIXEL Store' },
+                    timestamp: new Date().toISOString()
+                }]
+            })
+        }).catch(e => console.log('Webhook error:', e));
+    }
 
-function showNotification(msg){const old=document.querySelector('.notification-toast');if(old)old.remove();const d=document.createElement('div');d.className='notification-toast';d.style.cssText='position:fixed;bottom:150px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#e0e0e0;padding:12px 25px;border-radius:10px;border:1px solid #d4af37;z-index:2000;font-size:1rem;animation:fadeInUp 0.5s ease;';d.textContent=msg;document.body.appendChild(d);setTimeout(()=>{d.style.animation='fadeOutDown 0.5s ease';setTimeout(()=>d.remove(),500)},3000)}
+    function loadPage(p) {
+        const c = document.getElementById('pageContent');
+        const pages = { home: getHomePage, store: getStorePage, jobs: getJobsPage, admin: getAdminPage, rules: getRulesPage, media: getMediaPage };
+        if (pages[p]) {
+            c.innerHTML = pages[p]();
+            document.querySelectorAll('.bottom-nav a[data-page]').forEach(l => {
+                l.classList.remove('active');
+                if (l.dataset.page === p) l.classList.add('active');
+            });
+            if (p === 'store') {
+                document.getElementById('cartToggle').classList.add('visible');
+                setTimeout(() => { updateCartUI(); renderStore(); }, 100);
+            } else {
+                document.getElementById('cartToggle').classList.remove('visible');
+            }
+        }
+    }
 
-window.onload=function(){try{const user=JSON.parse(localStorage.getItem('user'));if(user&&user.username){currentUser=user.username;document.getElementById('loginScreen').style.display='none';document.getElementById('mainSite').style.display='block';loadPage('home');storeStats.visitors++}}catch(e){}}
+    document.querySelectorAll('.bottom-nav a[data-page]').forEach(l => {
+        l.addEventListener('click', function(e) { e.preventDefault(); loadPage(this.dataset.page); });
+    });
+
+    function getHomePage() {
+        return `<section class="section"><div class="card-dark text-center" style="max-width:800px;margin:0 auto;"><img src="https://cdn.discordapp.com/attachments/1273293571205759038/1545263537490890832/bank01_LAw.png?ex=6a9b8250&is=6a9a30d0&hm=8025539bd5a3a2a0319f358317188fc97f634a2890fab265253139016e93a569&" style="width:100%;max-height:350px;object-fit:contain;border-radius:12px;margin-bottom:20px;"><h2 style="color:#d4af37;font-size:2.5rem;">NEW PIXEL</h2><p style="color:#d4af37;font-size:1.2rem;">صلي على النبي</p><p style="color:#9e9e9e;font-size:1.2rem;margin-top:10px;">We are not the only ones but we are the best</p><div style="margin-top:20px;display:flex;align-items:center;justify-content:center;gap:8px;"><span style="display:inline-block;width:12px;height:12px;border-radius:50%;background:#00ff00;box-shadow:0 0 15px rgba(0,255,0,0.5);"></span><span style="color:#e0e0e0;font-weight:700;font-size:1rem;">المتجر مفتوح</span></div></div></section>`;
+    }
+
+    function getStorePage() {
+        return `<section class="section"><h2 class="section-title">🛍️ المتجر الاحترافي</h2><div class="store-grid"><div class="store-card card-realestate" onclick="selectCategory('realestate')"><h2>🏠 العقارات</h2><p>محلات، مطاعم، بيوت، قصور</p></div><div class="store-card card-packages" onclick="selectCategory('packages')"><h2>📦 الحزم</h2><p>حزم، VIP، سيارات، مستويات</p></div><div class="store-card card-gangs" onclick="selectCategory('gangs')"><h2>🔫 العصابات</h2><p>فتح عصابه، سيارات، هيليكوبتر</p></div></div><div class="search-bar"><input type="text" id="searchInput" placeholder="🔍 ابحث عن منتج..." oninput="updateSearch()"><button onclick="updateSearch()"><i class="fas fa-search"></i></button></div><div class="stats-section"><div class="stat-card"><div class="stat-number">${storeStats.visitors}</div><div class="stat-label">👥 زوار اليوم</div></div><div class="stat-card"><div class="stat-number">${storeStats.sales}</div><div class="stat-label">🛒 عمليات شراء</div></div></div><div class="subcategory-tabs" id="subcategoryTabs"></div><div id="storeProducts" class="product-grid"></div></section>`;
+    }
+
+    function selectCategory(c) {
+        currentCategory = c;
+        currentSubcategory = 'all';
+        renderStore();
+        showNotification('📂 تم اختيار قسم: ' + (c === 'realestate' ? 'العقارات' : c === 'packages' ? 'الحزم' : 'العصابات'));
+    }
+
+    function updateSearch() {
+        searchQuery = document.getElementById('searchInput')?.value?.trim().toLowerCase() || '';
+        renderStore();
+    }
+
+    function renderStore() {
+        const container = document.getElementById('storeProducts');
+        const tabs = document.getElementById('subcategoryTabs');
+        if (!container) return;
+        const data = allProducts[currentCategory];
+        if (data && tabs) {
+            let h = '<button class="active" onclick="setSubcategory(\'all\',this)">الكل</button>';
+            data.subcategories.forEach(s => { h += `<button onclick="setSubcategory('${s}',this)">${s}</button>`; });
+            tabs.innerHTML = h;
+        }
+        let products = data ? [...data.items] : [];
+        if (currentSubcategory !== 'all') products = products.filter(p => p.subcategory === currentSubcategory);
+        if (searchQuery) products = products.filter(p => p.name.toLowerCase().includes(searchQuery) || p.subcategory.includes(searchQuery));
+        if (!products.length) { container.innerHTML = '<p style="color:#666;text-align:center;padding:40px;font-size:1.2rem;">❌ لا توجد منتجات تطابق البحث</p>'; return; }
+        let h = '';
+        products.forEach(p => {
+            h += `<div class="product-card" style="background-image:url('${p.img}');position:relative;cursor:pointer;" onclick="openProductDetail('${p.id}')"><h3>${p.name}</h3><div class="price">💰 ${p.price} كريدت</div><div class="quantity-control"><button onclick="event.stopPropagation();changeQty('${p.id}',-1)">-</button><span id="qty_${p.id}">1</span><button onclick="event.stopPropagation();changeQty('${p.id}',1)">+</button></div><button class="add-btn" onclick="event.stopPropagation();addToCartWithQty('${p.id}')">➕ أضف للسلة</button></div>`;
+        });
+        container.innerHTML = h;
+    }
+
+    const tempQtys = {};
+    function changeQty(id, d) { if (!tempQtys[id]) tempQtys[id] = 1; tempQtys[id] = Math.max(1, tempQtys[id] + d); const el = document.getElementById('qty_' + id); if (el) el.textContent = tempQtys[id]; }
+    function getQty(id) { return tempQtys[id] || 1; }
+    function setSubcategory(sub, btn) { currentSubcategory = sub; document.querySelectorAll('.subcategory-tabs button').forEach(b => b.classList.remove('active')); if (btn) btn.classList.add('active'); renderStore(); }
+    function addToCartWithQty(id) { const data = allProducts[currentCategory]; const p = data.items.find(item => item.id === id); if (!p) return; addToCart(p, getQty(id)); }
+    function openProductDetail(id) { const data = allProducts[currentCategory]; const p = data.items.find(item => item.id === id); if (!p) return; detailProduct = p; detailQty = 1; document.getElementById('detailImage').src = p.img; document.getElementById('detailName').textContent = p.name; document.getElementById('detailPrice').textContent = '💰 ' + p.price + ' كريدت'; document.getElementById('detailDesc').textContent = p.desc || 'منتج مميز من NEW PIXEL'; document.getElementById('detailQty').textContent = 1; document.getElementById('productDetailModal').classList.add('show'); }
+    function closeProductDetail() { document.getElementById('productDetailModal').classList.remove('show'); }
+    function changeDetailQty(d) { detailQty = Math.max(1, detailQty + d); document.getElementById('detailQty').textContent = detailQty; }
+    function addDetailToCart() { if (!detailProduct) return; addToCart(detailProduct, detailQty); closeProductDetail(); }
+    function addToCart(p, q) { const existing = cart.find(item => item.id === p.id); if (existing) existing.qty += q; else cart.push({ ...p, qty: q }); cartCount = cart.reduce((s, i) => s + i.qty, 0); updateCartUI(); showNotification('➕ تم إضافة ' + p.name + ' (x' + q + ') للسلة'); }
+    function removeFromCart(i) { cart.splice(i, 1); cartCount = cart.reduce((s, item) => s + item.qty, 0); updateCartUI(); }
+    function updateCartUI() {
+        document.getElementById('cartBadge').textContent = cartCount;
+        const container = document.getElementById('cartItems');
+        if (!cart.length) { container.innerHTML = '<p style="color:#666;text-align:center;padding:20px;">السلة فارغة</p>'; document.getElementById('cartTotal').textContent = 'المجموع: 0 كريدت'; return; }
+        let h = '', total = 0;
+        cart.forEach((item, i) => {
+            const priceNum = parsePrice(item.price);
+            const itemTotal = priceNum * item.qty;
+            total += itemTotal;
+            h += `<div class="cart-item"><div class="item-info"><img src="${item.img}" alt=""><div><div class="item-name">${item.name}</div><div class="item-qty">الكمية: ${item.qty}</div><div style="color:#777;font-size:0.7rem;">السعر: ${formatPrice(priceNum)} كريدت</div></div></div><div style="display:flex;align-items:center;gap:10px;"><span class="item-price">${formatPrice(itemTotal)} كريدت</span><button onclick="removeFromCart(${i})" style="background:#d4af37;color:#0a0a0a;border:none;border-radius:5px;padding:2px 10px;cursor:pointer;">✕</button></div></div>`;
+        });
+        container.innerHTML = h;
+        document.getElementById('cartTotal').textContent = 'المجموع: ' + formatPrice(total) + ' كريدت';
+    }
+    function toggleCart() { document.getElementById('cartSidebar').classList.toggle('open'); }
+    function checkout() {
+        if (!cart.length) { alert('السلة فارغة!'); return; }
+        const orderNumber = Math.floor(Math.random() * 1000000);
+        showOrderNumber(orderNumber);
+        let total = 0, items = '';
+        cart.forEach(item => { const priceNum = parsePrice(item.price); total += priceNum * item.qty; items += item.name + ' (x' + item.qty + ') - ' + item.price + '\n'; });
+        sendDiscordNotification({ username: currentUser || 'زائر', orderNumber: orderNumber, items: items || 'لا يوجد', total: formatPrice(total) + ' كريدت' });
+        storeStats.sales += cart.reduce((s, i) => s + i.qty, 0);
+        cart = []; cartCount = 0; updateCartUI(); toggleCart(); showNotification('✅ تم إنهاء الطلب بنجاح! رقم الطلب: #' + orderNumber);
+    }
+
+    function openSurvey(name) {
+    if (name === 'وزارة الميكانيك') { showNotification('⚠️ تقديم وزارة الميكانيك مغلق مؤقتاً حتى إشعار آخر'); return; }
+    currentMinistry = name;
+    document.getElementById('surveyTitle').textContent = '📋 التقديم - ' + name;
+    document.getElementById('surveyForm').style.display = 'block';
+    document.getElementById('afterSubmit').classList.remove('show');
+    document.getElementById('surveyDiscord').value = '';
+    document.getElementById('surveyGameName').value = '';
+    document.getElementById('surveyAge').value = '';
+    document.getElementById('surveyExperience').value = '';
+    document.getElementById('surveyHours').value = '';
+    document.getElementById('surveyPrevious').value = '';
+    document.getElementById('surveyOverlay').classList.add('open');
+}
+
+    function closeSurvey() { document.getElementById('surveyOverlay').classList.remove('open'); }
+
+    function submitSurvey() {
+        const discord = document.getElementById('surveyDiscord').value.trim();
+        const gameName = document.getElementById('surveyGameName').value.trim();
+        const age = document.getElementById('surveyAge').value.trim();
+        const experience = document.getElementById('surveyExperience').value.trim();
+        const hours = document.getElementById('surveyHours').value.trim();
+        const previous = document.getElementById('surveyPrevious').value.trim();
+        if (!discord || !gameName || !age || !experience || !hours || !previous) { showNotification('❌ الرجاء ملء جميع الخانات!'); return; }
+        const webhook = ministryWebhooks[currentMinistry];
+        if (!webhook) { showNotification('❌ خطأ: لا يوجد Webhook لهذه الوزارة'); return; }
+        fetch(webhook, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                embeds: [{
+                    title: '📋 طلب تقديم جديد - ' + currentMinistry,
+                    color: 0x00cc44,
+                    fields: [
+                        { name: '🆔 يوزر الديسكورد', value: discord, inline: true },
+                        { name: '👤 اسمك في اللعبة', value: gameName, inline: true },
+                        { name: '📅 عمرك الحقيقي', value: age, inline: true },
+                        { name: '⭐ خبراتك الوظيفيه', value: experience || 'غير مذكور', inline: false },
+                        { name: '🕐 ساعات تفاعلك', value: hours || 'غير مذكور', inline: true },
+                        { name: '🏢 جهة عملك السابقة', value: previous || 'غير مذكور', inline: true },
+                        { name: '📝 وقت التقديم', value: new Date().toLocaleString('ar-EG'), inline: true }
+                    ],
+                    footer: { text: 'NEW PIXEL - تقديم ' + currentMinistry },
+                    timestamp: new Date().toISOString()
+                }]
+            })
+        }).then(() => {
+            submittedMinistries[currentMinistry] = true;
+            updateMinistryCard(currentMinistry);
+            document.getElementById('surveyForm').style.display = 'none';
+            document.getElementById('afterSubmit').classList.add('show');
+            showNotification('✅ تم إرسال تقديمك بنجاح!');
+        }).catch(() => { showNotification('❌ حدث خطأ في الإرسال، حاول مجدداً'); });
+    }
+
+    function updateMinistryCard(name) {
+        try { const s = JSON.parse(localStorage.getItem('submittedMinistries') || '{}'); s[name] = true; localStorage.setItem('submittedMinistries', JSON.stringify(s)); } catch(e) {}
+        loadPage('jobs');
+    }
+
+    function getJobsPage() {
+        let s = {};
+        try { s = JSON.parse(localStorage.getItem('submittedMinistries') || '{}'); } catch(e) {}
+        let h = '';
+        ministries.forEach(m => {
+            const has = !!ministryWebhooks[m.name];
+            const sub = s[m.name] || false;
+            const isMech = m.name === 'وزارة الميكانيك';
+            h += `<div class="ministry-card"><img src="${m.img}" alt="${m.name}" loading="lazy"><h3>${m.name}</h3><div class="desc">${m.desc}</div>${isMech ? '<div class="closed" style="color:#ff4444;font-weight:700;margin-top:8px;font-size:.9rem;">🔒 تقديم الميكانيك مقفل إلى حين استلام الفاكشن</div>' : (has ? (sub ? '<div class="wait-msg-card show" style="color:#ff4444;font-weight:700;font-size:.9rem;margin-top:8px;">⏳ انتظر الرد في الديسكورد</div>' : `<button class="apply-btn" onclick="openSurvey('${m.name}')">✅ للتقديم اضغط هنا</button>`) : '<div class="closed" style="color:#ff4444;font-weight:700;margin-top:5px;font-size:.9rem;">🔒 غير مفعل</div>')}</div>`;
+        });
+        return `<section class="section"><h2 class="section-title">💼 الوظائف والوزارات</h2><div class="card-dark" style="max-width:1000px;margin:0 auto;text-align:center;"><p style="font-size:1.2rem;color:#d4af37;">🏛️ وزارات الدولة</p><p style="color:#9e9e9e;margin-bottom:15px;">انضم إلى إحدى الوزارات للمساهمة في تطوير السيرفر</p><div class="ministry-grid">${h}</div><p style="color:#666;margin-top:20px;font-size:.9rem;">⚠️ جميع الوزارات حالياً غير مفعلة - قريباً سيفتح باب التقديم</p></div></section>`;
+    }
+
+    function getAdminPage() { return `<section class="section"><h2 class="section-title">👑 الإدارة</h2><div class="admin-card" style="max-width:400px;margin:0 auto;"><p style="color:#666;font-size:1.2rem;">🚧 قائمة الإدارة قيد التحديث</p><p style="color:#888;font-size:.9rem;">سيتم الإعلان عن الطاقم الإداري قريباً</p></div></section>`; }
+    function getMediaPage() { return `<section class="section"><h2 class="section-title">📸 الميديا</h2><div class="card-dark" style="max-width:800px;margin:0 auto;text-align:center;"><p style="color:#d4af37;font-size:1.3rem;">✅ قريباً - محتوى حصري من السيرفر</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:15px;margin-top:20px;"><div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);"><i class="fab fa-youtube" style="font-size:2rem;color:#ff0000;"></i><p style="color:#9e9e9e;">يوتيوب</p></div><div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);"><i class="fab fa-tiktok" style="font-size:2rem;color:#000;"></i><p style="color:#9e9e9e;">تيك توك</p></div><div style="background:rgba(212,175,55,0.05);border-radius:10px;padding:15px;border:1px solid rgba(212,175,55,0.1);"><i class="fab fa-instagram" style="font-size:2rem;color:#e4405f;"></i><p style="color:#9e9e9e;">انستغرام</p></div></div></div></section>`; }
+    function getRulesPage() { let h = ''; laws.forEach(s => { let r = ''; s.rules.forEach((rule, i) => { r += `<div class="law-item"><strong>${i+1}.</strong> ${rule}</div>`; }); h += `<div class="law-section"><h3>📜 ${s.title}</h3>${r}</div>`; }); return `<section class="section"><h2 class="section-title">📜 قوانين السيرفر</h2><div class="card-dark" style="max-width:900px;margin:0 auto;"><p style="color:#d4af37;text-align:center;font-size:1.1rem;margin-bottom:20px;">يرجى قراءة القوانين بعناية قبل الانضمام</p><p style="color:#9e9e9e;text-align:center;margin-bottom:20px;">الالتزام بالقوانين إلزامي لجميع اللاعبين.</p>${h}</div></section>`; }
+
+    function showNotification(msg) {
+        const old = document.querySelector('.notification-toast');
+        if (old) old.remove();
+        const d = document.createElement('div');
+        d.className = 'notification-toast';
+        d.style.cssText = 'position:fixed;bottom:150px;left:50%;transform:translateX(-50%);background:#1a1a1a;color:#e0e0e0;padding:12px 25px;border-radius:10px;border:1px solid #d4af37;z-index:2000;font-size:1rem;animation:fadeInUp 0.5s ease;';
+        d.textContent = msg;
+        document.body.appendChild(d);
+        setTimeout(() => { d.style.animation = 'fadeOutDown 0.5s ease'; setTimeout(() => d.remove(), 500); }, 3000);
+    }
+
+    window.onload = function() {
+        try {
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user && user.username) {
+                currentUser = user.username;
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainSite').style.display = 'block';
+                loadPage('home');
+                storeStats.visitors++;
+            }
+        } catch(e) {}
+    };
 </script>
 </body>
 </html>
