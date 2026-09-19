@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>لوحة التحكم - NEW PIXEL</title>
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 *{font-family:'Cairo',sans-serif;margin:0;padding:0;box-sizing:border-box}
@@ -41,18 +40,15 @@ label{display:block;color:#d4af37;font-weight:700;font-size:0.85rem;margin-top:1
 <div class="box">
 <h1>🔐 لوحة التحكم - NEW PIXEL</h1>
 
-<!-- شاشة الدخول -->
 <div id="loginScreen">
 <div id="loginMsg"></div>
 <input type="password" id="passwordInput" placeholder="أدخل كلمة المرور">
 <button onclick="checkPassword()" style="width:100%">دخول</button>
 </div>
 
-<!-- لوحة التحكم -->
 <div id="adminPanel" class="hidden">
 <div id="panelMsg"></div>
 
-<!-- التابات -->
 <div class="tabs">
 <button onclick="showTab('main')" id="tabMain" class="active">الرئيسية</button>
 <button onclick="showTab('ministries')" id="tabMinistries">الوزارات</button>
@@ -60,7 +56,6 @@ label{display:block;color:#d4af37;font-weight:700;font-size:0.85rem;margin-top:1
 <button onclick="showTab('webhooks')" id="tabWebhooks">Webhooks</button>
 </div>
 
-<!-- تاب الرئيسية -->
 <div id="contentMain" class="tab-content active">
 <h2>⚙️ إعدادات الموقع</h2>
 <label>الصورة الرئيسية (رابط)</label>
@@ -70,19 +65,16 @@ label{display:block;color:#d4af37;font-weight:700;font-size:0.85rem;margin-top:1
 <button onclick="saveMainSettings()" style="width:100%;margin-top:15px">💾 حفظ إعدادات الموقع</button>
 </div>
 
-<!-- تاب الوزارات -->
 <div id="contentMinistries" class="tab-content">
 <h2>🏛️ الوزارات</h2>
 <div id="ministriesList"></div>
 </div>
 
-<!-- تاب المنتجات -->
 <div id="contentProducts" class="tab-content">
 <h2>🛍️ المنتجات</h2>
 <div id="productsList"></div>
 </div>
 
-<!-- تاب Webhooks -->
 <div id="contentWebhooks" class="tab-content">
 <h2>🔗 Webhooks</h2>
 <label>Webhook المتجر</label>
@@ -118,9 +110,11 @@ document.getElementById('tab'+tab.charAt(0).toUpperCase()+tab.slice(1)).classLis
 function checkPassword(){
 const p=document.getElementById('passwordInput').value;
 if(p!==PASSWORD){showMsg('loginMsg','❌ كلمة المرور خاطئة','error');return;}
+if(!githubToken){
 githubToken=prompt('أدخل GitHub Token:');
 if(!githubToken){showMsg('loginMsg','❌ يجب إدخال التوكن','error');return;}
 localStorage.setItem('gh_token',githubToken);
+}
 document.getElementById('loginScreen').classList.add('hidden');
 document.getElementById('adminPanel').classList.remove('hidden');
 loadData();
@@ -138,9 +132,7 @@ showMsg('panelMsg','❌ فشل تحميل البيانات: '+e.message,'error')
 }
 
 function renderPanel(){
-// الصورة الرئيسية
 document.getElementById('mainImage').value=currentData.site.mainImage||'';
-// حالة المتجر
 const storeBtn=document.getElementById('storeBtn');
 if(currentData.site.storeOpen){
 storeBtn.textContent='🟢 المتجر مفتوح - اضغط لإغلاقه';
@@ -151,7 +143,6 @@ storeBtn.textContent='🔴 المتجر مغلق - اضغط لفتحه';
 storeBtn.className='btn-off';
 storeBtn.style.width='100%';
 }
-// الوزارات
 let mHtml='';
 currentData.ministries.forEach((m,i)=>{
 mHtml+='<div class="card">';
@@ -163,7 +154,6 @@ mHtml+='<button class="btn-small" onclick="saveMinistry('+i+')" style="margin-ri
 mHtml+='</div>';
 });
 document.getElementById('ministriesList').innerHTML=mHtml;
-// المنتجات
 let pHtml='';
 ['realestate','packages','gangs'].forEach(cat=>{
 const c=currentData.products[cat];
@@ -179,7 +169,6 @@ pHtml+='<button onclick="saveProducts(\''+cat+'\')" style="width:100%;margin-top
 pHtml+='</div>';
 });
 document.getElementById('productsList').innerHTML=pHtml;
-// Webhooks
 document.getElementById('storeWebhook').value=currentData.webhooks.store||'';
 let wHtml='';
 currentData.ministries.forEach((m,i)=>{
@@ -193,29 +182,23 @@ document.getElementById('ministryWebhooksList').innerHTML=wHtml;
 
 async function toggleStore(){
 currentData.site.storeOpen=!currentData.site.storeOpen;
-await saveData();
-renderPanel();
-showMsg('panelMsg','✅ تم تحديث حالة المتجر','success');
+try{await saveData();renderPanel();showMsg('panelMsg','✅ تم تحديث حالة المتجر','success');}catch(e){showMsg('panelMsg','❌ فشل الحفظ: '+e.message,'error');}
 }
 
 async function toggleMinistry(i){
 currentData.ministries[i].open=!currentData.ministries[i].open;
-await saveData();
-renderPanel();
-showMsg('panelMsg','✅ تم تحديث '+currentData.ministries[i].name,'success');
+try{await saveData();renderPanel();showMsg('panelMsg','✅ تم تحديث '+currentData.ministries[i].name,'success');}catch(e){showMsg('panelMsg','❌ فشل الحفظ: '+e.message,'error');}
 }
 
 async function saveMinistry(i){
 currentData.ministries[i].desc=document.getElementById('m_desc_'+i).value;
 currentData.ministries[i].img=document.getElementById('m_img_'+i).value;
-await saveData();
-showMsg('panelMsg','✅ تم حفظ '+currentData.ministries[i].name,'success');
+try{await saveData();showMsg('panelMsg','✅ تم حفظ '+currentData.ministries[i].name,'success');}catch(e){showMsg('panelMsg','❌ فشل الحفظ: '+e.message,'error');}
 }
 
 async function saveMainSettings(){
 currentData.site.mainImage=document.getElementById('mainImage').value;
-await saveData();
-showMsg('panelMsg','✅ تم حفظ إعدادات الموقع','success');
+try{await saveData();showMsg('panelMsg','✅ تم حفظ إعدادات الموقع','success');}catch(e){showMsg('panelMsg','❌ فشل الحفظ: '+e.message,'error');}
 }
 
 async function saveProducts(cat){
@@ -224,8 +207,7 @@ currentData.products[cat].items.forEach((item,idx)=>{
 const newPrice=document.getElementById('item_price_'+cat+'_'+idx).value;
 if(newPrice)item.price=newPrice;
 });
-await saveData();
-showMsg('panelMsg','✅ تم حفظ منتجات '+currentData.products[cat].title,'success');
+try{await saveData();showMsg('panelMsg','✅ تم حفظ منتجات '+currentData.products[cat].title,'success');}catch(e){showMsg('panelMsg','❌ فشل الحفظ: '+e.message,'error');}
 }
 
 async function saveWebhooks(){
@@ -234,22 +216,26 @@ currentData.ministries.forEach((m,i)=>{
 const el=document.getElementById('wh_'+i);
 if(el)currentData.webhooks.ministries[m.name]=el.value;
 });
-await saveData();
-showMsg('panelMsg','✅ تم حفظ Webhooks','success');
+try{await saveData();showMsg('panelMsg','✅ تم حفظ Webhooks','success');}catch(e){showMsg('panelMsg','❌ فشل الحفظ: '+e.message,'error');}
 }
 
 async function saveData(){
 const url='https://api.github.com/repos/'+GITHUB_USER+'/'+GITHUB_REPO+'/contents/'+DATA_FILE;
-const getRes=await fetch(url,{headers:{'Authorization':'token '+githubToken}});
+const headers={'Authorization':'Bearer '+githubToken,'Accept':'application/vnd.github+json'};
+const getRes=await fetch(url,{headers:headers});
+if(!getRes.ok){throw new Error('فشل جلب الملف ('+getRes.status+')');}
 const fileInfo=await getRes.json();
 const jsonStr=JSON.stringify(currentData,null,2);
 const content=btoa(unescape(encodeURIComponent(jsonStr)));
 const putRes=await fetch(url,{
 method:'PUT',
-headers:{'Authorization':'token '+githubToken,'Content-Type':'application/json'},
+headers:{...headers,'Content-Type':'application/json'},
 body:JSON.stringify({message:'تحديث من لوحة التحكم',content:content,sha:fileInfo.sha})
 });
-if(!putRes.ok)throw new Error('فشل الحفظ');
+if(!putRes.ok){
+const errText=await putRes.text();
+throw new Error('فشل الرفع ('+putRes.status+')');
+}
 }
 
 window.onload=function(){
