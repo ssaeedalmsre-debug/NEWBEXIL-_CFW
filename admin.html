@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>لوحة التحكم - NEW PIXEL</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+*{font-family:'Cairo',sans-serif;margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#e0e0e0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.box{background:rgba(20,20,20,0.95);border:2px solid rgba(212,175,55,0.3);border-radius:20px;padding:30px;max-width:700px;width:100%}
+h1{color:#d4af37;text-align:center;margin-bottom:20px;font-size:2rem}
+input{width:100%;background:rgba(255,255,255,0.03);border:2px solid rgba(212,175,55,0.3);border-radius:10px;padding:12px;color:#e0e0e0;font-size:1rem;margin-bottom:15px}
+input:focus{border-color:#d4af37;outline:none}
+button{background:#d4af37;color:#0a0a0a;border:none;padding:12px 30px;border-radius:10px;font-weight:700;cursor:pointer;font-size:1rem;transition:.3s}
+button:hover{background:#c4a032;transform:scale(1.02)}
+.ministry{background:rgba(20,20,20,0.8);border:1px solid rgba(212,175,55,0.2);border-radius:12px;padding:15px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.ministry h3{color:#d4af37;font-size:1.1rem}
+.btn-on{background:#00cc44;color:#fff}
+.btn-off{background:#ff4444;color:#fff}
+.status{font-size:0.85rem;font-weight:700;padding:4px 12px;border-radius:20px}
+.status.open{background:#00cc44;color:#fff}
+.status.closed{background:#ff4444;color:#fff}
+.hidden{display:none}
+.msg{text-align:center;padding:15px;border-radius:10px;margin-bottom:15px;font-weight:700}
+.msg.success{background:rgba(0,204,68,0.2);color:#00cc44;border:1px solid #00cc44}
+.msg.error{background:rgba(255,68,68,0.2);color:#ff4444;border:1px solid #ff4444}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>🔐 لوحة التحكم</h1>
+
+<!-- شاشة الدخول -->
+<div id="loginScreen">
+<div id="loginMsg"></div>
+<input type="password" id="passwordInput" placeholder="أدخل كلمة المرور">
+<button onclick="checkPassword()" style="width:100%">دخول</button>
+</div>
+
+<!-- لوحة التحكم -->
+<div id="adminPanel" class="hidden">
+<div id="panelMsg"></div>
+<button onclick="toggleStore()" id="storeBtn" style="width:100%;margin-bottom:20px">جاري التحميل...</button>
+<h2 style="color:#d4af37;text-align:center;margin:20px 0;font-size:1.3rem">🏛️ الوزارات</h2>
+<div id="ministriesList"></div>
+</div>
+</div>
+
+<script>
+const PASSWORD='almshri_saeed909';
+const GITHUB_USER='ssaeedalmsre-debug';
+const GITHUB_REPO='NEWBEXIL-_CFW';
+const DATA_FILE='data.json';
+let githubToken='';
+let currentData=null;
+
+function showMsg(id,text,type){
+const el=document.getElementById(id);
+el.innerHTML='<div class="msg '+type+'">'+text+'</div>';
+setTimeout(()=>el.innerHTML='',3000);
+}
+
+function checkPassword(){
+const p=document.getElementById('passwordInput').value;
+if(p!==PASSWORD){showMsg('loginMsg','❌ كلمة المرور خاطئة','error');return;}
+githubToken=prompt('أدخل GitHub Token (يُحفظ في المتصفح):');
+if(!githubToken){showMsg('loginMsg','❌ يجب إدخال التوكن','error');return;}
+localStorage.setItem('gh_token',githubToken);
+document.getElementById('loginScreen').classList.add('hidden');
+document.getElementById('adminPanel').classList.remove('hidden');
+loadData();
+}
+
+async function loadData(){
+try{
+const url='https://raw.githubusercontent.com/'+GITHUB_USER+'/'+GITHUB_REPO+'/main/'+DATA_FILE;
+const res=await fetch(url+'?t='+Date.now());
+currentData=await res.json();
+renderPanel();
+}catch(e){
+showMsg('panelMsg','❌ فشل تحميل البيانات: '+e.message,'error');
+}
+}
+
+function renderPanel(){
+// زر المتجر
+const storeBtn=document.getElementById('storeBtn');
+if(currentData.site.storeOpen){
+storeBtn.textContent='🟢 المتجر مفتوح - اضغط لإغلاقه';
+storeBtn.className='btn-on';
+storeBtn.style.width='100%';
+storeBtn.style.marginBottom='20px';
+}else{
+storeBtn.textContent='🔴 المتجر مغلق - اضغط لفتحه';
+storeBtn.className='btn-off';
+storeBtn.style.width='100%';
+storeBtn.style.marginBottom='20px';
+}
+
+// الوزارات
+let html='';
+currentData.ministries.forEach((m,i)=>{
+html+='<div class="ministry">';
+html+='<div><h3>'+m.name+'</h3><span class="status '+(m.open?'open':'closed')+'">'+(m.open?'✅ مفتوح':'🔒 مقفل')+'</span></div>';
+html+='<button class="'+(m.open?'btn-off':'btn-on')+'" onclick="toggleMinistry('+i+')">'+(m.open?'إغلاق':'فتح')+'</button>';
+html+='</div>';
+});
+document.getElementById('ministriesList').innerHTML=html;
+}
+
+async function toggleStore(){
+currentData.site.storeOpen=!currentData.site.storeOpen;
+await saveData();
+renderPanel();
+showMsg('panelMsg','✅ تم تحديث حالة المتجر','success');
+}
+
+async function toggleMinistry(index){
+currentData.ministries[index].open=!currentData.ministries[index].open;
+await saveData();
+renderPanel();
+showMsg('panelMsg','✅ تم تحديث '+currentData.ministries[index].name,'success');
+}
+
+async function saveData(){
+const url='https://api.github.com/repos/'+GITHUB_USER+'/'+GITHUB_REPO+'/contents/'+DATA_FILE;
+// جلب SHA الحالي
+const getRes=await fetch(url,{headers:{'Authorization':'token '+githubToken}});
+const fileInfo=await getRes.json();
+// تحويل البيانات إلى base64 (مع دعم العربية)
+const jsonStr=JSON.stringify(currentData,null,2);
+const content=btoa(unescape(encodeURIComponent(jsonStr)));
+// رفع التحديث
+const putRes=await fetch(url,{
+method:'PUT',
+headers:{'Authorization':'token '+githubToken,'Content-Type':'application/json'},
+body:JSON.stringify({message:'تحديث من لوحة التحكم',content:content,sha:fileInfo.sha})
+});
+if(!putRes.ok){throw new Error('فشل الحفظ');}
+}
+
+window.onload=function(){
+const saved=localStorage.getItem('gh_token');
+if(saved){githubToken=saved;}
+};
+</script>
+</body>
+</html>
