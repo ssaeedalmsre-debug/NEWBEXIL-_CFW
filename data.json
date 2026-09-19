@@ -2,7 +2,7 @@
   "site": {
     "name": "NEW PIXEL",
     "tagline": "We are not the only ones but we are the best",
-    "storeOpen": false,
+    "storeOpen": true,
     "storeStatus": "المتجر مفتوح",
     "mainImage": "https://cdn.discordapp.com/attachments/1273293571205759038/1545263537490890832/bank01_LAw.png?ex=6a9b8250&is=6a9a30d0&hm=8025539bd5a3a2a0319f358317188fc97f634a2890fab265253139016e93a569&"
   },
