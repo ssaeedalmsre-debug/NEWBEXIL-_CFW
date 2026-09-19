@@ -1,0 +1,93 @@
+{
+  "site": {
+    "name": "NEW PIXEL",
+    "tagline": "We are not the only ones but we are the best",
+    "storeOpen": true,
+    "storeStatus": "المتجر مفتوح",
+    "mainImage": "https://cdn.discordapp.com/attachments/1273293571205759038/1545263537490890832/bank01_LAw.png?ex=6a9b8250&is=6a9a30d0&hm=8025539bd5a3a2a0319f358317188fc97f634a2890fab265253139016e93a569&"
+  },
+  "webhooks": {
+    "store": "https://discord.com/api/webhooks/1545263669825249360/r0nKyDwLkheE6gAAeOomYgYLbVgvI_n2ncJFF6zGI3bsqcYdcOBoMAVfF8gdCXrIP6v1",
+    "ministries": {
+      "وزارة الداخلية": "https://discord.com/api/webhooks/1545256268686561353/OwcHKtBJ2L8ZF1crAJJIGAqtUULM51M-Rwz3qzlf_xCY1KXvaeTL5K7dREw2ITFemJsX",
+      "وزارة الصحة": "https://discord.com/api/webhooks/1545257392147800075/a33duvRkejddTyI5HPHDxP8VnFxdoaICm06S_f5BK8U7n5Ls1ll8ui7VA2OiaX6RSo57",
+      "القوات الخاصة": "https://discord.com/api/webhooks/1545257540240023572/wX440evjiXTGl0eDyjGym0j4WbF3dd2-LDL2-mOWiW5pWPcwp6Wxmq-CWiStpr-erMm2",
+      "وزارة العدل": "https://discord.com/api/webhooks/1545256773777100820/pGjTJRAg3JQvwR-PjTLtPXtYKEgEsWSlApZjvP0BQVL38MGvjuRpxKEBVxqeeJrg7G5Q"
+    }
+  },
+  "ministries": [
+    {
+      "name": "وزارة الداخلية",
+      "desc": "الأمن والشرطة",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545259974442090546/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7eff&is=6a9a2d7f&hm=581e43d21092c67e8d08fb1e2604e1e52568af8a1415eb1ff97c975b59f197ee&",
+      "open": true
+    },
+    {
+      "name": "وزارة الصحة",
+      "desc": "الخدمات الطبية",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545259999939399700/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f05&is=6a9a2d85&hm=4a47c24f653984d6ce86b6640af77ae0594ab4a33b577e8ee74c7f983b431c79&",
+      "open": true
+    },
+    {
+      "name": "وزارة الميكانيك",
+      "desc": "الصيانة والمركبات",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545260017689694218/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f09&is=6a9a2d89&hm=4395520e10946bde727f926a3b3511c561b3329e82ae65e90b13020d45c400e1&",
+      "open": false
+    },
+    {
+      "name": "وزارة العدل",
+      "desc": "القضاء والقانون",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545260006893428807/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f07&is=6a9a2d87&hm=df89dc5cea5677116d11c628090a153adf6293e7ce1c30177cff9a02fd897261&",
+      "open": true
+    },
+    {
+      "name": "القوات الخاصة",
+      "desc": "SPECIAL WEAPONS AND TACTICS",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545260012652200128/Screenshot_------_com.openai.chatgpt.png?ex=6a9b7f08&is=6a9a2d88&hm=361a71af6a1692b5b681f48103a3274a2c2468273cd0a1d00f4ed6ea508aa398&",
+      "open": true
+    }
+  ],
+  "products": {
+    "realestate": {
+      "title": "🏠 العقارات",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545262626882322442/Screenshot_------_com.openai.chatgpt.png?ex=6a9b8177&is=6a9a2ff7&hm=2ea5f17ea321536ffb43733fd2d78b6cbee82ac41ce1d4d3b097289cc17b03fb&",
+      "items": [
+        { "id": "r1", "name": "🏪 محل عام", "price": "1M", "desc": "محل عام في موقع مميز" },
+        { "id": "r2", "name": "🍽️ مطعم", "price": "1M", "desc": "مطعم فاخر مع تجهيزات كاملة" },
+        { "id": "r3", "name": "👕 محل ملابس", "price": "1M", "desc": "محل ملابس في منطقة حيوية" },
+        { "id": "r4", "name": "🏠 بيت صغير", "price": "300K", "desc": "بيت صغير مناسب للعائلات الصغيرة" },
+        { "id": "r5", "name": "🏘️ بيت متوسط", "price": "500K", "desc": "بيت متوسط مع حديقة" },
+        { "id": "r6", "name": "🏰 قصر", "price": "1M", "desc": "قصر فاخر مع جميع المرافق" }
+      ]
+    },
+    "packages": {
+      "title": "📦 الحزم",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545262626341130431/Screenshot_------_com.openai.chatgpt-3.png?ex=6a9b8177&is=6a9a2ff7&hm=f6a95720ca86fed0c23f0c4956c13985c0368ced866250b7c04fa38dd39eeec8&",
+      "items": [
+        { "id": "p1", "name": "🎒 حقيبة مستوى أول", "price": "150K", "desc": "حقيبة مستوى أول - للمبتدئين" },
+        { "id": "p2", "name": "🎒 حقيبة مستوى ثاني", "price": "250K", "desc": "حقيبة مستوى ثاني - للمتقدمين" },
+        { "id": "p3", "name": "🎒 حقيبة مستوى ثالث", "price": "400K", "desc": "حقيبة مستوى ثالث - للمحترفين" },
+        { "id": "p4", "name": "🔫 مستوى تصنيع أسلحة 5", "price": "500K", "desc": "رفع مستوى تصنيع الأسلحة إلى 5" },
+        { "id": "p5", "name": "👤 مستوى شخصي 5", "price": "500K", "desc": "رفع المستوى الشخصي إلى 5" },
+        { "id": "p6", "name": "🚗 سيارة من اختيارك", "price": "300K", "desc": "سيارة من اختيارك مع ترخيص" },
+        { "id": "p7", "name": "👑 VIP 1", "price": "800K", "desc": "عضوية VIP المستوى الأول" },
+        { "id": "p8", "name": "👑 VIP 2", "price": "1.5M", "desc": "عضوية VIP المستوى الثاني" },
+        { "id": "p9", "name": "👑 VIP 3", "price": "2.5M", "desc": "عضوية VIP المستوى الثالث" }
+      ]
+    },
+    "gangs": {
+      "title": "🔫 العصابات",
+      "img": "https://cdn.discordapp.com/attachments/1273293571205759038/1545262625741475900/Screenshot_------_com.openai.chatgpt-2.png?ex=6a9b8177&is=6a9a2ff7&hm=778a13ca82faaa74a231c9892d13cccc72ca20b6fbd5dfadfc8383e038937f4e&",
+      "items": [
+        { "id": "g1", "name": "⚔️ فتح عصابه جديده", "price": "300K", "desc": "فتح عصابة جديدة بتصريح رسمي" },
+        { "id": "g2", "name": "📋 استلام عصابه جاهزه", "price": "50K", "desc": "استلام عصابة جاهزة للتشغيل" },
+        { "id": "g3", "name": "🏢 سياج للمقر", "price": "200K", "desc": "تأمين سياج لمقر العصابة" },
+        { "id": "g4", "name": "📍 تغيير مقر العصابه", "price": "250K", "desc": "تغيير موقع مقر العصابة" },
+        { "id": "g5", "name": "🎨 تغير اسم ولون العصابه", "price": "200K", "desc": "تغيير اسم ولون العصابة" },
+        { "id": "g6", "name": "📦 تعبئة متيريال", "price": "100K", "desc": "تعبئة مواد ومستلزمات العصابة" },
+        { "id": "g7", "name": "🚗 سيارة للعصابه", "price": "50K", "desc": "سيارة خاصة للعصابة" },
+        { "id": "g8", "name": "🚁 هيلي كوبتر", "price": "150K", "desc": "طائرة هليكوبتر للعصابة" }
+      ]
+    }
+  }
+}
